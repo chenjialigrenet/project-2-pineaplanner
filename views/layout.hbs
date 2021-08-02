@@ -6,9 +6,9 @@
     <title>PineaPlanner</title>
     <link rel='stylesheet' href='stylesheets/style.css' />
     {{#each style}}
-    <link rel='stylesheet' href='stylesheets/{{this}}' />
-    {{/each }}
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <link rel='stylesheet' href='stylesheets/{{this}}' />
+    {{/each}}
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
   </head>
   <body>
 
@@ -17,15 +17,17 @@
       <a href='/planner'>Meal planner</a>
       <a href='/myplans'>My Plans</a>
       <a href='/recipes'>Recipes</a>
-      {{#unless isLoggedIn}}
+      <div class='btn-right'>
+        {{#unless isLoggedIn}}
+          <a href='/signup'>Signup</a>
+          <a href='/login'>Login</a>
+        {{/unless}}
+        {{#if isLoggedIn}}
+          <a href='/profile'>Profile</a>
+          <a href='/logout'>Logout</a>
+        {{/if}}
+      </div>
 
-        <a href='/signup'>Signup</a>
-        <a href='/login'>Login</a>
-      {{/unless}}
-      {{#if isLoggedIn}}
-        <a href='/profile'>Profile</a>
-        <a href='/logout'>Logout</a>
-      {{/if }}
     </nav>
 
     {{{body}}}

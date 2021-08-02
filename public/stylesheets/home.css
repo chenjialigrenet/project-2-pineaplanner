@@ -1,5 +1,11 @@
 /* #156064 #00c49a #f8e16c #ffc2b4 #fb8f67  */
 
+body {
+  background-image: url('../images/background-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 nav {
   background-color: #00c49a;
   height: 2em;
@@ -9,20 +15,53 @@ nav {
 }
 
 a {
-  color: #156064;
+  color: black;
   font-size: 1.2em;
   text-decoration: none;
   padding-right: 1em;
   padding-left: 1em;
 }
 
+a:hover {
+  color: white;
+  font-weight: bolder;
+}
+
 div {
   padding-left: 1em;
 }
 
+h1 {
+  font-size: 9em;
+  color: #f8e16c;
+  padding-top: 0.7em;
+  margin-left: 1em;
+}
+
+.pitch {
+  text-align: right;
+  font-size: 1.3em;
+  margin-right: 5em;
+}
+
 .btn-start {
-  padding-left: 1em;
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 2em;
+  padding: 1em 1.5em 1em 1.5em;
   /* color: white; */
-  border: #fb8f67;
-  padding: 0.6em;
+  background-color: #fb8f67;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.btn-right {
+  position: absolute;
+  top: 1em;
+  right: 2em;
 }
