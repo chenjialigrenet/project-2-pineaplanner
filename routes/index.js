@@ -3,6 +3,9 @@ const Plan = require('../models/Plan.model');
 const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
 const router = express.Router();
+require('dotenv').config();
+const itemPerPageVar=process.env.RECIPE_PER_PAGE;
+
 
 // GET home page //
 router.get('/', (req, res, next) => {
@@ -42,11 +45,16 @@ router.get('/recipes', async (req, res, next) => {
         }
       });
     });
-    console.log(dishTypes);
+    
+    let firsPageRecipes=foundRecipes.slice(0,itemPerPageVar);
+    let maxPage=Math.ceil(foundRecipes.length/itemPerPageVar);
+    
     res.render('recipes.hbs', {
-      recipes: foundRecipes,
+      recipes: firsPageRecipes,
       dishTypes: dishTypes,
       style: ['recipesStyle.css'],
+      scripts: ["recipesPageScript.js"],
+      allPages: maxPage,
     });
   } catch (err) {
     next(err);
@@ -57,7 +65,6 @@ router.get('/recipes', async (req, res, next) => {
 router.get('/recipes/:id', (req, res, next) => {
   Recipe.findById(req.params.id)
     .then((dbRes) => {
-      console.log(req.params.id);
       res.render('oneRecipe.hbs', {
         recipe: dbRes,
         style: ['oneRecipeStyle.css'],
@@ -77,9 +84,19 @@ router.get('/myplans', (req, res, next) => {
 
 //GET profile page//
 router.get('/profile', (req, res, next) => {
-  res.render('profile.hbs', {
-    style: ['profile.css'],
-  });
+  User.findById(req.session.currentUser._id)
+    .then((dbRes) => {
+      res.render('profile.hbs', {
+        user: dbRes,
+        style: ['profile.css'],
+      });
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
+
+//Edit profile page//
+//router.post('/profile', (req, res, next)=>{})
 
 module.exports = router;

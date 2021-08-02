@@ -50,14 +50,26 @@
 
 </div>
 
+<div id="recipes-recipe-right">
 
-
+<div id="recipes-pageselector">
+    <button id="prevPageButton">←</button>
+    <span id="currentPage">1</span>
+    <span> / </span>
+    <span id="allPage">{{allPages}}</span>
+    <button id="nextPageButton">→</button>
+</div>
 
 <div id="recipes-recipe-wrapper">
     {{#each recipes}}
         {{>recipeCard this}}
     {{/each }}
 </div>
+
+</div>
+
+
+
 
 
 
