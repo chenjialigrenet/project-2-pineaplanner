@@ -1,1 +1,16 @@
 <h1>Meal Planner Calendar</h1>
+<table>
+    <thead>
+        {{#each plan}}
+        <tr>
+            <td class="days">{{this.monday.breakfast}}</td>
+        </tr>
+        <tr>
+            <td>Meal1</td>
+            <td>Meal2</td>
+            <td>Meal3</td>
+        </tr>
+
+        {{/each}}
+    </tbody>
+</table>

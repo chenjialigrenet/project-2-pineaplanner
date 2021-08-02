@@ -13,9 +13,17 @@ router.get('/', (req, res, next) => {
 
 //GET Planner page//
 router.get('/planner', (req, res, next) => {
-  res.render('planner.hbs', {
-    style: ['mealPlannerStyle.css'],
-  });
+  Plan.create({}).then((newPlan) => {
+      newPlan.populate('monday')
+      console.log(newPlan)
+    res.render('planner.hbs', {
+      style: ['mealPlannerStyle.css'],
+      plan: newPlan,
+    });
+  }).catch((err) => {
+    console.log(err)
+  })
+  
 });
 
 //GET Recipes List page//
