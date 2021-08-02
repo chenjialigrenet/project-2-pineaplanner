@@ -1,11 +1,8 @@
 <h1>User Profile</h1>
 
-{{! action url??????? }}
-<form action='/users/profile' method='POST'>
-  <ul>
-    <li>User name: {{user.userName}}</li>
-    <li>Email: {{user.email}}</li>
-    {{!-- <li>{{user.password}}</li> --}}
-  </ul>
-  <button>Edit</button>
-</form>
+<ul>
+  <li>User name: {{user.userName}}</li>
+  <li>Email: {{user.email}}</li>
+  {{!-- <li>{{user.password}}</li> --}}
+</ul>
+<a href="/users/profile/edit">Edit</button>

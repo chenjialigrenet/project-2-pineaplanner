@@ -4,12 +4,6 @@ const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
 const router = express.Router();
 
-// /* GET users listing. */
-// router.get('/', function (req, res, next) {
-//   res.send('respond with a resource');
-// });
-
-/////////STILL A LOT OF PROBLEMS OF PROFILE PAGE/////////
 //GET profile page//
 router.get('/users/profile', (req, res, next) => {
   User.findById(req.session.currentUser._id)
@@ -38,6 +32,7 @@ router.get('/users/profile/edit', (req, res, next) => {
     res
       .render('profileEdit.hbs', {
         user: dbRes,
+        style: ['profile.css'],
       })
       .catch((err) => next(err));
   });

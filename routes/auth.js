@@ -54,7 +54,7 @@ router.post('/login', async (req, res, next) => {
 
     req.session.currentUser = user;
     console.log(req.session.currentUser);
-    res.redirect('/');
+    res.redirect('/users/profileg');
   } catch (error) {
     console.log(error); //Checking what the error is (delete this line)
     res.render('login', {
