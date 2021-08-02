@@ -13,53 +13,49 @@ router.get('/', (req, res, next) => {
 
 //GET Planner page//
 router.get('/planner', (req, res, next) => {
-  Plan.create().then((newPlan) => {
-    res.render('planner.hbs', {
-      style: ['mealPlannerStyle.css'],
-      plan: newPlan,
+  Plan.create()
+    .then((newPlan) => {
+      res.render('planner.hbs', {
+        style: ['mealPlannerStyle.css'],
+        plan: newPlan,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  }).catch((err) => {
-    console.log(err)
-  })
-  
 });
 
 //GET Recipes List page//
 router.get('/recipes', async (req, res, next) => {
-
-  try{
-
+  try {
     const foundRecipes = await Recipe.find();
-    const dishTypes =[];
-    
-    foundRecipes.forEach((recipe)=>{
+    const dishTypes = [];
+
+    foundRecipes.forEach((recipe) => {
       let dishTypeLocal = recipe.dishTypes;
 
-      dishTypeLocal.forEach((type)=>{
-        if (!dishTypes.includes(type)){
+      dishTypeLocal.forEach((type) => {
+        if (!dishTypes.includes(type)) {
           dishTypes.push(type);
         }
-      })
-      
-    })
+      });
+    });
     console.log(dishTypes);
     res.render('recipes.hbs', {
       recipes: foundRecipes,
       dishTypes: dishTypes,
       style: ['recipesStyle.css'],
     });
-
-  }
-  catch (err) {
+  } catch (err) {
     next(err);
   }
 });
-
 
 //GET One Recipe Page//
 router.get('/recipes/:id', (req, res, next) => {
   Recipe.findById(req.params.id)
     .then((dbRes) => {
+      console.log(req.params.id);
       res.render('oneRecipe.hbs', {
         recipe: dbRes,
         style: ['oneRecipeStyle.css'],

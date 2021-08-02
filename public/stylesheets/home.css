@@ -1,4 +1,10 @@
-/* #156064 #00c49a #f8e16c #ffc2b4 #fb8f67  */
+:root {
+  --dark-blue: #156064;
+  --mint-green: #00c49a;
+  --pale-yellow: #f8e16c;
+  --pink: #ffc2b4;
+  --salmon: #fb8f67;
+}
 
 body {
   background-image: url('../images/background-img.jpg');
@@ -7,7 +13,7 @@ body {
 }
 
 nav {
-  background-color: #00c49a;
+  background-color: var(--mint-green);
   height: 2em;
   width: 100vw;
   display: block;
@@ -24,7 +30,6 @@ a {
 
 a:hover {
   color: white;
-  font-weight: bolder;
 }
 
 div {
@@ -33,7 +38,7 @@ div {
 
 h1 {
   font-size: 9em;
-  color: #f8e16c;
+  color: var(--pale-yellow);
   padding-top: 0.7em;
   margin-left: 1em;
 }
@@ -49,8 +54,7 @@ h1 {
   margin-left: 70%;
   margin-top: 2em;
   padding: 1em 1.5em 1em 1.5em;
-  /* color: white; */
-  background-color: #fb8f67;
+  background-color: var(--salmon);
   display: inline-block;
   text-align: center;
   white-space: nowrap;

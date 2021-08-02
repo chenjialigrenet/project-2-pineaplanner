@@ -1,4 +1,10 @@
-/* #156064 #00c49a #f8e16c #ffc2b4 #fb8f67  */
+:root {
+  --dark-blue: #156064;
+  --mint-green: #00c49a;
+  --pale-yellow: #f8e16c;
+  --pink: #ffc2b4;
+  --salmon: #fb8f67;
+}
 
 body {
   padding: 0;
@@ -8,7 +14,7 @@ body {
 }
 
 nav {
-  background-color: #00c49a;
+  background-color: var(--mint-green);
   height: 2em;
   width: 100vw;
   display: block;

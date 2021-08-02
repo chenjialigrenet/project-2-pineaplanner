@@ -1,4 +1,10 @@
-/* #156064 #00c49a #f8e16c #ffc2b4 #fb8f67  */
+:root {
+  --dark-blue: #156064;
+  --mint-green: #00c49a;
+  --pale-yellow: #f8e16c;
+  --pink: #ffc2b4;
+  --salmon: #fb8f67;
+}
 
 h1 {
   margin-left: 1em;
@@ -17,7 +23,7 @@ p {
 p .btn-sign {
   font-size: 16px;
   text-decoration: underline;
-  color: #00c49a;
+  color: var(--mint-green);
 }
 
 div {
@@ -28,12 +34,12 @@ button {
   margin: 0.4em 0 0.25em 0;
   border-radius: 4px;
   border-style: none;
-  background-color: #ffc2b4;
+  background-color: var(--pink);
   padding: 0.25em 1em 0.25em 1em;
 }
 
 button:hover {
-  background-color: #fb8f67;
+  background-color: var(--salmon);
   border-style: none;
   border-radius: 4px;
 }
