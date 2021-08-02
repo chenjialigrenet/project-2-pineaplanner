@@ -7,21 +7,22 @@ const router = express.Router();
 // GET home page //
 router.get('/', (req, res, next) => {
   res.render('home.hbs', {
-    style: ['style.css'],
+    style: ['home.css'],
+
   });
 });
 
 //GET Planner page//
 router.get('/planner', (req, res, next) => {
   res.render('planner.hbs', {
-    style: ['style.css'],
+    style: ['mealPlannerStyle.css'],
   });
 });
 
 //GET Recipes List page//
 router.get('/recipes', (req, res, next) => {
   res.render('recipes.hbs', {
-    style: ['style.css'],
+    style: ['recipesStyle.css'],
   });
   // Recipe.find()
   //   .then((dbRes) => {
@@ -41,7 +42,7 @@ router.get('/recipes/:id', (req, res, next) => {
     .then((dbRes) => {
       res.render('oneRecipe.hbs', {
         recipe: dbRes,
-        style: ['style.css'],
+        style: ['oneRecipeStyle.css'],
       });
     })
     .catch((err) => {
@@ -49,31 +50,17 @@ router.get('/recipes/:id', (req, res, next) => {
     });
 });
 
-//GET Login page//
-router.get('/login', (req, res, next) => {
-  res.render('login.hbs', {
-    style: ['style.css'],
-  });
-});
-
-//GET Signup page//
-router.get('/signup', (req, res, next) => {
-  res.render('signup.hbs', {
-    style: ['style.css'],
-  });
-});
-
 //GET myplans page//
 router.get('/myplans', (req, res, next) => {
   res.render('myplans.hbs', {
-    style: ['style.css'],
+    style: ['myPlansStyle.css'],
   });
 });
 
 //GET profile page//
 router.get('/profile', (req, res, next) => {
   res.render('profile.hbs', {
-    style: ['style.css'],
+    style: ['profile.css'],
   });
 });
 

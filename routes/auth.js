@@ -6,7 +6,7 @@ const SALT = 10
 
 // SIGN UP ROUTES
 router.get('/signup', (req, res, next) => {
-    res.render('signup')
+    res.render('signup',{style: ['signInUp.css']})
 });
 
 router.post('/signup', async (req, res, next) => {
@@ -30,7 +30,8 @@ router.post('/signup', async (req, res, next) => {
     } catch (error) {
         console.log(error) //To know what the error is, to delete when everything is working fine
         res.render('signup', {
-            msg: {status: error.status, text: error.text}
+            msg: {status: error.status, text: error.text},
+            style: ['signInUp.css'],
         });
     }
 });
@@ -38,7 +39,7 @@ router.post('/signup', async (req, res, next) => {
 
 //SIGN IN ROUTES
 router.get('/login', (req, res, next) => {
-    res.render('login');
+    res.render('login', {style: ['signInUp.css']});
 });
 
 router.post('/login', async (req, res, next) => {
@@ -56,7 +57,8 @@ router.post('/login', async (req, res, next) => {
     } catch (error) {
         console.log(error) //Checking what the error is (delete this line)
         res.render('login', {
-            msg : {status: error.status, text: error.text}
+            msg : {status: error.status, text: error.text},
+            style: ['signInUp.css'],
           })
     }
 })
