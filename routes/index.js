@@ -27,18 +27,34 @@ router.get('/planner', (req, res, next) => {
 });
 
 //GET Recipes List page//
-router.get('/recipes', (req, res, next) => {
+router.get('/recipes', async (req, res, next) => {
 
-  Recipe.find()
-  .then((dbRes) => {
+  try{
+
+    const foundRecipes = await Recipe.find();
+    const dishTypes =[];
+    
+    foundRecipes.forEach((recipe)=>{
+      let dishTypeLocal = recipe.dishTypes;
+
+      dishTypeLocal.forEach((type)=>{
+        if (!dishTypes.includes(type)){
+          dishTypes.push(type);
+        }
+      })
+      
+    })
+    console.log(dishTypes);
     res.render('recipes.hbs', {
-      recipes: dbRes,
+      recipes: foundRecipes,
+      dishTypes: dishTypes,
       style: ['recipesStyle.css'],
     });
-  })
-  .catch((err) => {
+
+  }
+  catch (err) {
     next(err);
-  });
+  }
 });
 
 
