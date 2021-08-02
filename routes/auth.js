@@ -11,7 +11,7 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
     try {
-        const date = req.body
+        const data = req.body
 
         if(!data.email || !data.password || !data.userName) throw new Error({status: "error", text: "All fields required"});
 
@@ -25,11 +25,11 @@ router.post('/signup', async (req, res, next) => {
 
         const newUser = await User.create(data);
 
-        res.redirect('signin');
+        res.redirect('login');
         console.log('New user created', newUser) //Just to test if the user is created, delete this line after the test
     } catch (error) {
         console.log(error) //To know what the error is, to delete when everything is working fine
-        res.render('/signup', {
+        res.render('signup', {
             msg: {status: error.status, text: error.text}
         });
     }
@@ -51,11 +51,12 @@ router.post('/login', async (req, res, next) => {
         if(!user) throw new Error({status: 204, text: 'Wrong credentials !'})
 
         req.session.currentUser = user
+        console.log(req.session.currentUser)
         res.redirect('/')
     } catch (error) {
         console.log(error) //Checking what the error is (delete this line)
         res.render('login', {
-            msg : {status: err.status, text: err.text}
+            msg : {status: error.status, text: error.text}
           })
     }
 })
