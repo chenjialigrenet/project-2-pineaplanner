@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require('../models/User')
+const User = require('../models/User.model.js')
 const bcrypt = require('bcryptjs')
 const SALT = 10
 
@@ -37,11 +37,11 @@ router.post('/signup', async (req, res, next) => {
 
 
 //SIGN IN ROUTES
-router.get('/signin', (req, res, next) => {
-    res.render('signin');
+router.get('/login', (req, res, next) => {
+    res.render('login');
 });
 
-router.post('/signin', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -54,7 +54,7 @@ router.post('/signin', async (req, res, next) => {
         res.redirect('/')
     } catch (error) {
         console.log(error) //Checking what the error is (delete this line)
-        res.render('signin', {
+        res.render('login', {
             msg : {status: err.status, text: err.text}
           })
     }
@@ -68,3 +68,5 @@ router.get('/logout', (req, res, next) => {
       res.redirect('/');
     });
   });
+
+  module.exports = router;
