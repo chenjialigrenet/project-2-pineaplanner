@@ -1,19 +1,19 @@
 <h1>Meal Planner Calendar</h1>
 <table>
     <thead>
-        {{#each plan}}
-            {{#if this.day}}
-                
-            {{/if}}
+        {{#each days}}
         <tr>
-            <td class="days">Day</td>
+            <td class="days">{{this}}</td>
         </tr>
-        <tr>
-            <td>{{this.day.breakfast}}</td>
-            <td>Meal2</td>
-            <td>Meal3</td>
-        </tr>
+        
 
+        {{/each}}
+        {{#each plan}}
+        <tr>
+            <td>{{this.Monday.breakfast}}</td>
+            <td>{{this.lunch}}</td>
+            <td>{{this.dinner}}</td>
+        </tr>
         {{/each}}
     </tbody>
 </table>

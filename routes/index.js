@@ -13,11 +13,13 @@ router.get('/', (req, res, next) => {
 
 //GET Planner page//
 router.get('/planner', (req, res, next) => {
-  Plan.create()
+  Plan.create({})
     .then((newPlan) => {
+      console.log(newPlan)
       res.render('planner.hbs', {
         style: ['mealPlannerStyle.css'],
         plan: newPlan,
+        days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
       });
     })
     .catch((err) => {
