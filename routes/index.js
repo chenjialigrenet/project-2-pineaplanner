@@ -6,17 +6,23 @@ const router = express.Router();
 
 // GET home page //
 router.get('/', (req, res, next) => {
-  res.render('home.hbs');
+  res.render('home.hbs', {
+    style: ['style.css'],
+  });
 });
 
 //GET Planner page//
 router.get('/planner', (req, res, next) => {
-  res.render('planner.hbs');
+  res.render('planner.hbs', {
+    style: ['style.css'],
+  });
 });
 
 //GET Recipes List page//
 router.get('/recipes', (req, res, next) => {
-  res.render('recipes.hbs');
+  res.render('recipes.hbs', {
+    style: ['style.css'],
+  });
   // Recipe.find()
   //   .then((dbRes) => {
   //     res.render('/recipes.hbs', {
@@ -35,6 +41,7 @@ router.get('/recipes/:id', (req, res, next) => {
     .then((dbRes) => {
       res.render('oneRecipe.hbs', {
         recipe: dbRes,
+        style: ['style.css'],
       });
     })
     .catch((err) => {
@@ -44,22 +51,30 @@ router.get('/recipes/:id', (req, res, next) => {
 
 //GET Login page//
 router.get('/login', (req, res, next) => {
-  res.render('login.hbs');
+  res.render('login.hbs', {
+    style: ['style.css'],
+  });
 });
 
 //GET Signup page//
 router.get('/signup', (req, res, next) => {
-  res.render('signup.hbs');
+  res.render('signup.hbs', {
+    style: ['style.css'],
+  });
 });
 
 //GET myplans page//
 router.get('/myplans', (req, res, next) => {
-  res.render('myplans.hbs');
+  res.render('myplans.hbs', {
+    style: ['style.css'],
+  });
 });
 
 //GET profile page//
 router.get('/profile', (req, res, next) => {
-  res.render('profile.hbs');
+  res.render('profile.hbs', {
+    style: ['style.css'],
+  });
 });
 
 module.exports = router;
