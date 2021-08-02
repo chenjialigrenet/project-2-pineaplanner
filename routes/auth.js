@@ -13,7 +13,7 @@ router.post('/signup', async (req, res, next) => {
     try {
         const date = req.body
 
-        if(!data.email || !data.password || !data.name || !data.lastname) throw new Error({status: "error", text: "All fields required"});
+        if(!data.email || !data.password || !data.userName) throw new Error({status: "error", text: "All fields required"});
 
         const alreadyExist = await User.findOne({email: data.email});
 
@@ -48,7 +48,7 @@ router.post('/signin', async (req, res, next) => {
 
         const user = await User.findOne({email});
 
-        if(!user) throw new Error({status: 204, text: 'Wring credentials !'})
+        if(!user) throw new Error({status: 204, text: 'Wrong credentials !'})
 
         req.session.currentUser = user
         res.redirect('/')
