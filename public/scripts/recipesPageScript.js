@@ -13,6 +13,22 @@ buttonNextPage.onclick=goNextPage;
 buttonPrevPage.onclick=goPreviousPage;
 
 
+
+
+function handleChange(){
+
+    axios
+        .get(`/recipes/page/${currentPage}`)
+        .then((receivedList)=>{
+            let recipesToShow = receivedList.data;
+            refreshDisplay(recipesToShow);
+        })
+        .catch((err) => {
+            console.log(err);
+          });
+
+};
+
 function goNextPage(){
     if(currentPage<allPage){
     currentPage++;
@@ -31,24 +47,12 @@ function goPreviousPage(){
     
 };
 
-function handleChange(){
-
-    axios
-        .get(`/recipes/page/${currentPage}`)
-        .then((receivedList)=>{
-            let recipesToShow = receivedList.data;
-
-            recipesContainer.innerHTML="";
-            recipesToShow.forEach((recipe)=>{
-                recipesContainer.innerHTML+=
+function refreshDisplay(recipeList){
+    recipesContainer.innerHTML="";
+    recipeList.forEach((recipe)=>{
+    recipesContainer.innerHTML+=
                 `<div class="recipe-cards">
                     <span>${recipe.title}</span>
                 </div>`
             })
-
-        })
-        .catch((err) => {
-            console.log(err);
-          });
-
-};
+}

@@ -20,7 +20,6 @@ class PaginationHelper {
         let indexStart= (pageIndex-1)*this.itemsPerPage;
         let indexEnd= indexStart+this.itemsPerPage;
         let itemsOnPage= collection.slice(indexStart,indexEnd);
-        console.log(`itemsOnPage`, itemsOnPage);
         return itemsOnPage;
     };
 }
