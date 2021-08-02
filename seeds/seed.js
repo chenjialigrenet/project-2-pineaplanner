@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require('mongoose');
 const axios = require('axios').default;
 const recipeModel = require("../models/Recipe.model");
-let amountOfRecipe = 2;
+let amountOfRecipe = 100;
 let query = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.API_KEY}&number=${amountOfRecipe}`;
 let recipes = [];
 
@@ -43,7 +43,19 @@ axios.get(query)
             recipes.push(newRecipe);
         })
 
-        	console.log(recipes[0].ingredients);
+
+        // Conenct t odb qnd inject
+        mongoose.connect(process.env.MONGO_URI, {useNewUrlParser:true, useUnifiedTopology:true,})
+            .then(()=>{
+                console.log(`Connected to mongo DB`);
+                recipeModel.create(recipes)
+                    .then(()=> console.log("Succesfully seeded"))
+                    .catch((error)=>{console.log(error);});
+            })
+            .catch((error)=>(console.log(`error`, error)))
+
+
+        
 
     })
     .catch((error)=>console.log(error));

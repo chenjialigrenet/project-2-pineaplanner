@@ -17,10 +17,11 @@
 
         <a href='/signup'>Signup</a>
         <a href='/login'>Login</a>
-      {{else}}
+      {{/unless}}
+      {{#if isLoggedIn}}
         <a href='/profile'>Profile</a>
         <a href='/logout'>Logout</a>
-      {{/unless}}
+      {{/if }}
     </nav>
 
     {{{body}}}
