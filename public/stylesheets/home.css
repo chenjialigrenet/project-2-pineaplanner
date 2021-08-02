@@ -1,3 +1,28 @@
-body{
-    background-color: red;
+/* #156064 #00c49a #f8e16c #ffc2b4 #fb8f67  */
+
+nav {
+  background-color: #00c49a;
+  height: 2em;
+  width: 100vw;
+  display: block;
+  padding: 1em;
+}
+
+a {
+  color: #156064;
+  font-size: 1.2em;
+  text-decoration: none;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+div {
+  padding-left: 1em;
+}
+
+.btn-start {
+  padding-left: 1em;
+  /* color: white; */
+  border: #fb8f67;
+  padding: 0.6em;
 }
