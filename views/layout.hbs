@@ -12,14 +12,14 @@
       <a href='/planner'>Meal planner</a>
       <a href='/myplans'>My Plans</a>
       <a href='/recipes'>Recipes</a>
-      {{#if isLoggedIn}}
-        <a href='/main'>When loggedin</a>
+      {{#unless isLoggedIn}}
+        
         <a href='/signup'>Signup</a>
         <a href='/login'>Login</a>
       {{else}}
         <a href='/profile'>Profile</a>
         <a href='/logout'>Logout</a>
-      {{/if}}
+      {{/unless}}
     </nav>
 
     {{{body}}}

@@ -1,1 +1,17 @@
-<h1>Sign up</h1>
+<h1>Create an account</h1>
+<form method="POST" action="/signup">
+    <div>
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="Albert" required >
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="*****@gmail.com" required >
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="••••••" required >
+    </div>
+    <button type="submit">Create Account</button>
+  </form>
+  <p>Already have an account ? <a href="/login">Sign In</a></p>
