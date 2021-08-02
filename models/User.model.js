@@ -1,10 +1,10 @@
-const mongoose= reauire("mongoose");
+const mongoose= require("mongoose");
 const Schema = mongoose.Schema;
 
 
 const userSchema= new Schema({
-    userNamae : String,
-    email:String,
+    userName : String,
+    email:{type: String, unique:true},
     password: String,
     specialDiets: { type: [String], enum : ["Dairy-free", "Gluten-Free","Vegan","Vegetarian",] }
 });
