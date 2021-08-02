@@ -73,7 +73,6 @@ router.post("/recipes/page/:page", (req, res, next) => {
 
     else{
         queryDishType= {dishTypes:{$in:dishTypes}};
-        //queryDishType= {dishTypes:{$in:[dishTypes]},glutenFree:glutenFree,dairyFree:dairyFree,vegan:vegan,vegetarian:vegetarian,title:titleReg};
         console.log(`queryDishType`, queryDishType);
     }
     

@@ -17,6 +17,7 @@ const tagsForm = document.getElementById("filterTags");
 
 let currentPage = 1;
 let allPage = allPageDisplay.innerText;
+let recipePerPage = allPageDisplay.innerText;
 currentPageDisplay.innerText=currentPage;
 
 buttonNextPage.onclick=goNextPage;
@@ -103,6 +104,10 @@ function goPreviousPage(){
 };
 
 function refreshDisplay(recipeList){
+
+    allPage = Math.ceil(recipeList.length/recipePerPage);
+    currentPageDisplay.innerText=currentPage;
+    allPageDisplay.innerText=allPage;
     recipesContainer.innerHTML="";
     recipeList.forEach((recipe)=>{
     recipesContainer.innerHTML+=
