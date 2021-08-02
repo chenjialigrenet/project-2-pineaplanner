@@ -9,7 +9,10 @@
       <link rel='stylesheet' href='stylesheets/{{this}}' />
     {{/each}}
     <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
-  </head>
+    {{#each scripts}}
+    <script src="/scripts/{{this}}" type="module"></script>
+    {{/each}}
+    </head>
   <body>
 
     <nav>

@@ -3,6 +3,9 @@ const Plan = require('../models/Plan.model');
 const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
 const router = express.Router();
+require('dotenv').config();
+const itemPerPageVar=process.env.RECIPE_PER_PAGE;
+
 
 // GET home page //
 router.get('/', (req, res, next) => {
@@ -41,12 +44,15 @@ router.get('/recipes', async (req, res, next) => {
       });
     });
     
-    let firsPageRecipes=foundRecipes.slice(0,50);
-
+    let firsPageRecipes=foundRecipes.slice(0,itemPerPageVar);
+    let maxPage=Math.ceil(foundRecipes.length/itemPerPageVar);
+    
     res.render('recipes.hbs', {
       recipes: firsPageRecipes,
       dishTypes: dishTypes,
       style: ['recipesStyle.css'],
+      scripts: ["recipesPageScript.js"],
+      allPages: maxPage,
     });
   } catch (err) {
     next(err);

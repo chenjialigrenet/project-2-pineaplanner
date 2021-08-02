@@ -54,3 +54,9 @@ li{
     list-style: none;
 
 }
+
+@media (min-width: 480px){
+    #recipes-recipe-wrapper{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    }
+}
