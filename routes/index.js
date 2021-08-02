@@ -40,9 +40,11 @@ router.get('/recipes', async (req, res, next) => {
         }
       });
     });
-    console.log(dishTypes);
+    
+    let firsPageRecipes=foundRecipes.slice(0,50);
+
     res.render('recipes.hbs', {
-      recipes: foundRecipes,
+      recipes: firsPageRecipes,
       dishTypes: dishTypes,
       style: ['recipesStyle.css'],
     });

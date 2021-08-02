@@ -5,13 +5,29 @@ body{
 #recipes-body-wrapper{
     display: flex;
     width: 100%;
+    margin-top: 1rem;
 }
 
 
 #recipes-tags-wrapper{
-    width: 20%;
+    margin: 0 1rem;
     
 
+}
+
+#recipes-recipe-right{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#recipes-pageselector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 
@@ -29,6 +45,12 @@ body{
     
 }
 
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
 li{
     list-style: none;
+
 }
