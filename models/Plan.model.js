@@ -8,11 +8,17 @@ const planSchema= new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+    
+    
+
     monday:{
+        day: Boolean,
         breakfast :{
             type: Schema.Types.ObjectId,
             ref: "Recipe",
             default: "6107d104c6be84118ad3ac21",
+            
+           
         },
         lunch :{
             type: Schema.Types.ObjectId,
