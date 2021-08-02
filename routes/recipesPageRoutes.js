@@ -30,17 +30,66 @@ const pageHelper = new PaginationHelper(itemPerPage);
  * This router handles ajax requests.
  **/
 //To give back all the lists
-router.get("/recipes/page/:page", (req, res, next) => {
+router.post("/recipes/page/:page", (req, res, next) => {
     const page = req.params.page;
+    console.log(req.body);
 
-    recipeModel.find()
-      .then((allRecipes) => {
-        let recipesOnPage = pageHelper.returnThePage(allRecipes,page)
-        res.status(200).json(recipesOnPage);
-      })
-      .catch((err) => {
-        res.status(500).json(err);
-      });
+    let dishTypes=req.body.dishTypes;
+    let searchTitle=req.body.searchTitle;
+    let glutenFree=req.body.glutenFree;
+    let vegan=req.body.vegan;
+    let vegetarian=req.body.vegetarian;
+    let dairyFree=req.body.dairyFree;
+    let titleReg = new RegExp(`[A-Za-z]`);
+    
+    if(searchTitle!=="[A-Za-z]"){
+        titleReg = new RegExp(searchTitle,"gi");    
+        //titleReg = new RegExp(`/${searchTitle}/gi`);    
+    }
+
+    
+        let queyDishType={};
+        let queryDiets={};
+        let queryTitle={title:titleReg};
+        let query={};
+
+    if (glutenFree===false  &&
+            vegan===false       &&
+            vegetarian===false  &&
+            dairyFree===false){
+                queryDiets={};
+                console.log(`queryDiets`, queryDiets);
+            }
+    
+    else{
+        queryDiets={glutenFree:glutenFree,dairyFree:dairyFree,vegan:vegan,vegetarian:vegetarian,};
+        console.log(`queryDiets`, queryDiets);
+    }
+
+    if (dishTypes.length===0){
+        queryDishType={}
+        console.log(`queyDishType`, queryDishType);
+    }
+
+    else{
+        queryDishType= {dishTypes:{$in:dishTypes}};
+        //queryDishType= {dishTypes:{$in:[dishTypes]},glutenFree:glutenFree,dairyFree:dairyFree,vegan:vegan,vegetarian:vegetarian,title:titleReg};
+        console.log(`queryDishType`, queryDishType);
+    }
+    
+
+
+    query= {...queryDishType,...queryDiets,...queryTitle};
+    console.log(`query`, query);
+    
+    recipeModel.find(query)
+            .then((allRecipes) => {
+            let recipesOnPage = pageHelper.returnThePage(allRecipes,page)
+            res.status(200).json(recipesOnPage);
+        })
+            .catch((err) => {
+            res.status(500).json(err);
+        });
   });
 
 
