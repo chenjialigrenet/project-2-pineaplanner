@@ -4,8 +4,7 @@ const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
 const router = express.Router();
 require('dotenv').config();
-const itemPerPageVar=process.env.RECIPE_PER_PAGE;
-
+const itemPerPageVar = process.env.RECIPE_PER_PAGE;
 
 // GET home page //
 router.get('/', (req, res, next) => {
@@ -30,6 +29,13 @@ router.get('/planner', (req, res, next) => {
     });
 });
 
+//GET myplans page//
+router.get('/myplans', (req, res, next) => {
+  res.render('myplans.hbs', {
+    style: ['myPlansStyle.css'],
+  });
+});
+
 //GET Recipes List page//
 router.get('/recipes', async (req, res, next) => {
   try {
@@ -45,15 +51,15 @@ router.get('/recipes', async (req, res, next) => {
         }
       });
     });
-    
-    let firsPageRecipes=foundRecipes.slice(0,itemPerPageVar);
-    let maxPage=Math.ceil(foundRecipes.length/itemPerPageVar);
-    
+
+    let firsPageRecipes = foundRecipes.slice(0, itemPerPageVar);
+    let maxPage = Math.ceil(foundRecipes.length / itemPerPageVar);
+
     res.render('recipes.hbs', {
       recipes: firsPageRecipes,
       dishTypes: dishTypes,
       style: ['recipesStyle.css'],
-      scripts: ["recipesPageScript.js"],
+      scripts: ['recipesPageScript.js'],
       allPages: maxPage,
     });
   } catch (err) {
@@ -74,29 +80,5 @@ router.get('/recipes/:id', (req, res, next) => {
       next(err);
     });
 });
-
-//GET myplans page//
-router.get('/myplans', (req, res, next) => {
-  res.render('myplans.hbs', {
-    style: ['myPlansStyle.css'],
-  });
-});
-
-//GET profile page//
-router.get('/profile', (req, res, next) => {
-  User.findById(req.session.currentUser._id)
-    .then((dbRes) => {
-      res.render('profile.hbs', {
-        user: dbRes,
-        style: ['profile.css'],
-      });
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-//Edit profile page//
-//router.post('/profile', (req, res, next)=>{})
 
 module.exports = router;

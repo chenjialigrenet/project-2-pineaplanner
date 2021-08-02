@@ -4,15 +4,15 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>PineaPlanner</title>
-    <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     {{#each style}}
-      <link rel='stylesheet' href='stylesheets/{{this}}' />
+      <link rel='stylesheet' href='/stylesheets/{{this}}' />
     {{/each}}
     <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
     {{#each scripts}}
-    <script src="/scripts/{{this}}" type="module"></script>
+      <script src='/scripts/{{this}}' type='module'></script>
     {{/each}}
-    </head>
+  </head>
   <body>
 
     <nav>
@@ -26,7 +26,7 @@
           <a href='/login'>Login</a>
         {{/unless}}
         {{#if isLoggedIn}}
-          <a href='/profile'>Profile</a>
+          <a href='/users/profile'>Profile</a>
           <a href='/logout'>Logout</a>
         {{/if}}
       </div>

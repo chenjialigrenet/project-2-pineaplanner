@@ -1,0 +1,22 @@
+<h1>User Profile</h1>
+
+<form action='/users/profile/edit' method='POST'>
+  <ul>
+    <li><label for='name'>User name:
+        <input
+          type='text'
+          id='name'
+          name='userName'
+          value='{{user.userName}}'
+        /></label></li>
+    <li><label for='email'>Email:
+        <input
+          type='email'
+          id='email'
+          name='email'
+          value='{{user.email}}'
+        /></label></li>
+    {{!-- <li>{{user.password}}</li> --}}
+  </ul>
+  <button>Confirm</button>
+</form>
