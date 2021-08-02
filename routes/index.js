@@ -55,7 +55,6 @@ router.get('/recipes', async (req, res, next) => {
 router.get('/recipes/:id', (req, res, next) => {
   Recipe.findById(req.params.id)
     .then((dbRes) => {
-      console.log(req.params.id);
       res.render('oneRecipe.hbs', {
         recipe: dbRes,
         style: ['oneRecipeStyle.css'],
@@ -75,9 +74,19 @@ router.get('/myplans', (req, res, next) => {
 
 //GET profile page//
 router.get('/profile', (req, res, next) => {
-  res.render('profile.hbs', {
-    style: ['profile.css'],
-  });
+  User.findById(req.session.currentUser._id)
+    .then((dbRes) => {
+      res.render('profile.hbs', {
+        user: dbRes,
+        style: ['profile.css'],
+      });
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
+
+//Edit profile page//
+//router.post('/profile', (req, res, next)=>{})
 
 module.exports = router;
