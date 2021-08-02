@@ -10,12 +10,13 @@
     {{/each}}
     <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
     {{#each scripts}}
-    <script src="/scripts/{{this}}" type="module"></script>
+      <script src='/scripts/{{this}}' type='module'></script>
     {{/each}}
-    </head>
+  </head>
   <body>
 
     <nav>
+      {{! user profile url?????? }}
       <a href='/'>Home</a>
       <a href='/planner'>Meal planner</a>
       <a href='/myplans'>My Plans</a>
@@ -26,7 +27,7 @@
           <a href='/login'>Login</a>
         {{/unless}}
         {{#if isLoggedIn}}
-          <a href='/profile'>Profile</a>
+          <a href='/users/profile'>Profile</a>
           <a href='/logout'>Logout</a>
         {{/if}}
       </div>

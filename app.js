@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-const recipesPageRouter= require("./routes/recipesPageRoutes");
+const recipesPageRouter = require('./routes/recipesPageRoutes');
 const app = express();
 
 // SESSION SETUP
@@ -28,7 +28,6 @@ app.use(
   })
 );
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -38,13 +37,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerPartials(__dirname + '/views/partials');
 
-//CUSTOM MIDDLEWARES 
-app.use(require("./middlewares/loginStatus"));
+//CUSTOM MIDDLEWARES
+app.use(require('./middlewares/loginStatus'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/', authRouter);
 app.use('/', recipesPageRouter);
 

@@ -1,35 +1,7 @@
-:root {
-  --dark-blue: #156064;
-  --mint-green: #00c49a;
-  --pale-yellow: #f8e16c;
-  --pink: #ffc2b4;
-  --salmon: #fb8f67;
-}
-
 body {
   background-image: url('../images/background-img.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-nav {
-  background-color: var(--mint-green);
-  height: 2em;
-  width: 100vw;
-  display: block;
-  padding: 1em;
-}
-
-a {
-  color: black;
-  font-size: 1.2em;
-  text-decoration: none;
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-a:hover {
-  color: white;
 }
 
 div {
@@ -62,10 +34,4 @@ h1 {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 10px;
-}
-
-.btn-right {
-  position: absolute;
-  top: 1em;
-  right: 2em;
 }
