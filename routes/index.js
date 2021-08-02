@@ -7,7 +7,7 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('home.hbs', {
-    style: 'stylesheets/style.css',
+    style: ['style.css'],
   });
 });
 
@@ -16,6 +16,7 @@ router.get('/recipes', (req, res, next) => {
   Recipe.find().then((dbRes) => {
     res.render('/recipes.hbs', {
       recipes: dbRes,
+      style: ['style.css'],
     });
   });
 });
@@ -25,6 +26,7 @@ router.get('/recipes/:id', (req, res, next) => {
   Recipe.findById(req.params.id).then((dbRes) => {
     res.render('oneRecipe.hbs', {
       Recipe: dbRes,
+      style: ['style.css'],
     });
   });
 });
