@@ -8,7 +8,6 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.render('home.hbs', {
     style: ['home.css'],
-
   });
 });
 
@@ -21,20 +20,19 @@ router.get('/planner', (req, res, next) => {
 
 //GET Recipes List page//
 router.get('/recipes', (req, res, next) => {
-  res.render('recipes.hbs', {
-    style: ['recipesStyle.css'],
+
+  Recipe.find()
+  .then((dbRes) => {
+    res.render('recipes.hbs', {
+      recipes: dbRes,
+      style: ['recipesStyle.css'],
+    });
+  })
+  .catch((err) => {
+    next(err);
   });
-  // Recipe.find()
-  //   .then((dbRes) => {
-  //     res.render('/recipes.hbs', {
-  //       recipes: dbRes,
-  //       style: ['style.css'],
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     next(err);
-  //   });
 });
+
 
 //GET One Recipe Page//
 router.get('/recipes/:id', (req, res, next) => {
