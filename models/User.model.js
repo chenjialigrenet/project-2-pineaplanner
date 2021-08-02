@@ -1,16 +1,17 @@
-const mongoose= require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-const userSchema= new Schema({
-    userName : String,
-    email:{type: String, unique:true},
-    password: String,
-    specialDiets: { type: [String], enum : ["Dairy-free", "Gluten-Free","Vegan","Vegetarian",] }
+const userSchema = new Schema({
+  userName: String,
+  email: { type: String, unique: true },
+  password: String,
+  specialDiets: {
+    type: [String],
+    enum: ['Dairy-free', 'Gluten-Free', 'Vegan', 'Vegetarian'],
+  },
 });
 
-
-const userModel = mongoose.model("User", userSchema);
+const userModel = mongoose.model('User', userSchema);
 module.exports = userModel;
 
 // From slides
@@ -21,4 +22,3 @@ module.exports = userModel;
 // //image/avatar:  String,
 // special-diets: [String],
 // favorite-recipes: ObjectId
-
