@@ -37,6 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(__dirname + "/views/partials");
 
 //CUSTOM MIDDLEWARES 
 app.use(require("./middlewares/loginStatus"));
