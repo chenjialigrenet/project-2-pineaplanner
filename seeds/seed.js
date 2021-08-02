@@ -6,8 +6,6 @@ let amountOfRecipe = 100;
 let query = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.API_KEY}&number=${amountOfRecipe}`;
 let recipes = [];
 
-
-
 axios.get(query)
     .then((response)=>{
         let receivedRecipes = response.data.recipes;
