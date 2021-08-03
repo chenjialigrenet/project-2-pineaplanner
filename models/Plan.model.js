@@ -8,131 +8,154 @@ const planSchema= new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    
+    Recipes:
+    [
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+        {type: Schema.Types.ObjectId,ref: "Recipe",default: "",},
+    ],
     
 
-    Monday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
+    // Monday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
             
            
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
             
-        },
-    },
-    tuesday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-    },
-    wednesday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-    },
-    thursday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-    },
-    friday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-    },
-    saturday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-    },
-    sunday:{
-        breakfast :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        lunch :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-        dinner :{
-            type: Schema.Types.ObjectId,
-            ref: "Recipe",
-            default: "6107d104c6be84118ad3ac21",
-        },
-    },
+    //     },
+    // },
+    // tuesday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    // },
+    // wednesday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    // },
+    // thursday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    // },
+    // friday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    // },
+    // saturday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    // },
+    // sunday:{
+    //     breakfast :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     lunch :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    //     dinner :{
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Recipe",
+    //         default: "6107d104c6be84118ad3ac21",
+    //     },
+    // },
     allIngredients:[{
         name: String,
         amountPerServing: Number,
