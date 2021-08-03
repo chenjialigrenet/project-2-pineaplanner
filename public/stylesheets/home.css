@@ -1,32 +1,53 @@
-body {
-  background-image: url('../images/background-img.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-div {
-  padding-left: 1em;
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6%;
+  height: 100vh;
 }
 
 h1 {
-  font-size: 9em;
-  color: var(--pale-yellow);
-  padding-top: 0.7em;
-  margin-left: 1em;
+  color: var(--dark-blue);
+}
+
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 5rem;
+    font-weight: bold;
+  }
+  .pitch h2 {
+    font-size: 2em;
+  }
+  .pitch p {
+    font-size: 1em;
+  }
 }
 
 .pitch {
-  text-align: right;
-  font-size: 1.3em;
-  margin-right: 5em;
+  text-align: center;
+  padding: 3% 0 3% 0;
+}
+
+.pitch h2 {
+  color: var(--salmon);
+}
+
+.pitch p {
+  padding-top: 3%;
 }
 
 .btn-start {
-  position: absolute;
-  margin-left: 70%;
-  margin-top: 2em;
-  padding: 1em 1.5em 1em 1.5em;
-  background-color: var(--salmon);
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 1em 1.8em 1em 1.8em;
+  background-color: var(--pink);
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -34,4 +55,9 @@ h1 {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 10px;
+}
+
+.btn-start:hover {
+  color: white;
+  background-color: var(--salmon);
 }
