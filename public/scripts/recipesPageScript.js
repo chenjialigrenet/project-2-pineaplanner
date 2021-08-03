@@ -17,7 +17,7 @@ const tagsForm = document.getElementById("filterTags");
 
 let currentPage = 1;
 let allPage = allPageDisplay.innerText;
-let recipePerPage = 50;
+let recipePerPage = 30;
 currentPageDisplay.innerText=currentPage;
 
 buttonNextPage.onclick=goNextPage;
