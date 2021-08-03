@@ -23,14 +23,18 @@
       <a href='/' class='active'>PineaPlanner</a>
       <a href='/recipes'>Recipes</a>
       {{#unless isLoggedIn}}
-        <a href='/signup'>Signup</a>
-        <a href='/login'>Login</a>
+
+        <a href='/signup' class='right'>Signup</a>
+        <a href='/login' class='right'>Login</a>
+
       {{/unless}}
       {{#if isLoggedIn}}
         <a href='/planner'>Meal planner</a>
         <a href='/myplans'>My Plans</a>
-        <a href='/users/profile'>Profile</a>
-        <a href='/logout'>Logout</a>
+
+        <a href='/users/profile' class='right'>Profile</a>
+        <a href='/logout' class='right'>Logout</a>
+
       {{/if}}
       <a href='javascript:void(0);' class='icon' onclick='myFunction()'><i
           class='fa fa-bars'
