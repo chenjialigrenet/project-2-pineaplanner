@@ -35,7 +35,7 @@ router.get('/myplans', (req, res, next) => {
 //GET Recipes List page//
 router.get('/recipes', async (req, res, next) => {
   try {
-    const foundRecipes = await Recipe.find();
+    const foundRecipes = await Recipe.find().sort({title:1});
     const dishTypes = [];
 
     foundRecipes.forEach((recipe) => {
