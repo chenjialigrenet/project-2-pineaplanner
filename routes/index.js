@@ -15,18 +15,15 @@ router.get('/', (req, res, next) => {
 
 //GET Planner page//
 router.get('/planner', async (req, res, next) => {
-  Plan.find({title: 'First Plan'}).populate('Monday')
-    .then((newPlan) => {
-      console.log(newPlan)
-      res.render('planner.hbs', {
-        style: ['mealPlannerStyle.css'],
-        plan: newPlan,
-        days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-      });
-    })
-    .catch((err) => {
-      console.log(err);
+  await Recipe.find().then((dbRes) => {
+    console.log(dbRes)
+    res.render('planner.hbs', {
+      style: ['mealPlannerStyle.css'],
+      recipes: dbRes
+      // plan: newPlan,
     });
+  })
+  
 });
 
 //GET myplans page//
