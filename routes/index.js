@@ -14,9 +14,8 @@ router.get('/', (req, res, next) => {
 });
 
 //GET Planner page//
-router.get('/planner', async (req, res, next) => {
-  await Recipe.find().then((dbRes) => {
-    console.log(dbRes)
+router.get('/planner',  (req, res, next) => {
+   Recipe.find().then((dbRes) => {
     res.render('planner.hbs', {
       style: ['mealPlannerStyle.css'],
       recipes: dbRes
@@ -63,5 +62,26 @@ router.get('/recipes', async (req, res, next) => {
     next(err);
   }
 });
+
+router.post('/create-planner', async (req, res, next) => {
+  data = req.body.recipes
+  return Plan.create({recipes: data})
+  .then((newPlan) => {
+    newPlan.recipes.forEach(element => {
+      return Recipe.find({title: element})
+      .then((finalPlan) => {
+        console.log(finalPlan)
+        
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    });
+  }).catch((err) => {
+    console.log(err)
+    res.redirect('/create-planner')
+  })
+  
+})
 
 module.exports = router;

@@ -1,8 +1,9 @@
-<select name="cars" id="cars">
+<select name="recipes" id="recipes">
     {{#each recipes}}
-        <option value={{recipes.title}}> {{recipes.title}}  </option>
-        
+        <option value="{{this.title}}"> {{this.title}}</option>
     {{/each}}
 </select>
 
-//display all the recipe choice for the drop down menu
+
+
+{{!-- display all the recipe choice for the drop down menu --}}
