@@ -6,7 +6,7 @@ const router = express.Router();
 
 //GET profile page//
 router.get('/users/profile', (req, res, next) => {
-  User.findById(req.session.currentUser._id)
+  User.findById(req.session.currentUserId)
     .then((dbRes) => {
       res.render('profile.hbs', {
         user: dbRes,
@@ -20,7 +20,7 @@ router.get('/users/profile', (req, res, next) => {
 
 // //Edit profile page//
 router.post('/users/profile/edit', (req, res, next) => {
-  User.findByIdAndUpdate(req.session.currentUser._id, req.body)
+  User.findByIdAndUpdate(req.session.currentUserId, req.body)
     .then(() => {
       res.redirect('/users/profile');
     })
@@ -28,7 +28,7 @@ router.post('/users/profile/edit', (req, res, next) => {
 });
 
 router.get('/users/profile/edit', (req, res, next) => {
-  User.findById(req.session.currentUser._id).then((dbRes) => {
+  User.findById(req.session.currentUserId).then((dbRes) => {
     res
       .render('profileEdit.hbs', {
         user: dbRes,

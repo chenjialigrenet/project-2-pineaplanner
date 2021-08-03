@@ -52,8 +52,8 @@ router.post('/login', async (req, res, next) => {
 
     if (!user) throw new Error({ status: 204, text: 'Wrong credentials !' });
 
-    req.session.currentUser = user;
-    console.log(req.session.currentUser);
+    req.session.currentUserId = user.id;
+    console.log(req.session.currentUserId);
     res.redirect('/users/profile');
   } catch (error) {
     console.log(error); //Checking what the error is (delete this line)

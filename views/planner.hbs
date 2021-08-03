@@ -1,127 +1,24 @@
 <h1>Meal Planner Calendar</h1>
 
-<form method="POST" action="/create-planner">
-<table>
-    <thead>
-        <tr>
-            <td class="days">Monday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        <tr>
-            <td class="days">Tuesday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        <tr>
-            <td class="days">Wednesday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        <tr>
-            <td class="days">Thursday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        <tr>
-            <td class="days">Friday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        <tr>
-            <td class="days">Saturday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        <tr>
-            <td class="days">Sunday</td>
-        </tr>
-        <tr>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-            <td>
-                {{> selectInput}}
-            </td>
-        </tr>
-
-        
-    </tbody>
-</table>
-<div>
-         <button>Create Planner</button>
-</div>
-
-
-
-
-
-
-
-
-</form>
-
-
+{{#each days}}
+  <h1>{{ dayOfWeek }}</h1>
+  <div class='planner-day'>
+    {{#each meals}}
+      <div class='planner-meal'>
+        {{#if recipe}}
+          {{ recipe.title }}
+          <a href="/planner/{{ @root.planId}}/add-recipe?dayOfWeek={{../dayOfWeek}}&mealName={{mealName}}">
+            Change
+          </a>
+          <a href="/planner/{{ @root.planId}}/remove-recipe?dayOfWeek={{../dayOfWeek}}&mealName={{mealName}}">
+            Remove
+          </a>
+        {{else}}
+          <a href="/planner/{{ @root.planId}}/add-recipe?dayOfWeek={{../dayOfWeek}}&mealName={{mealName}}">
+            Add
+          </a>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+{{/each}}

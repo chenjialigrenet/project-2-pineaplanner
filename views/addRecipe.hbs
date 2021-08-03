@@ -1,0 +1,21 @@
+<h1>Add a recipe to plan for {{dayOfWeek}}'s {{mealName}}</h1>
+
+<input type='text' placeholder='Search for recipe...' id='recipe-search' />
+
+<form action='/planner/{{plan.id}}/add-recipe' method='POST'>
+  <input type='hidden' name='dayOfWeek' value='{{dayOfWeek}}' />
+  <input type='hidden' name='mealName' value='{{mealName}}' />
+
+  <div class='hidden' id='recipe-no-results'>
+    Couldn't find anything matching your query...
+  </div>
+
+  {{#each recipes}}
+    <div class='recipe-selection' data-title='{{title}}'>
+      <input type='radio' name='recipeId' value={{id}} required />
+      {{title}}
+    </div>
+  {{/each}}
+
+  <input type='submit' value='Add' />
+</form>
