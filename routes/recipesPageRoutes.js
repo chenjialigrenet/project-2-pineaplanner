@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const recipeModel = require("../models/Recipe.model");
-const itemPerPage =50;
+const itemPerPage =30;
 
 class PaginationHelper {
     constructor(itemsPerPage){
