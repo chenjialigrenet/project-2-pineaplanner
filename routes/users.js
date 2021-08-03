@@ -34,8 +34,8 @@ router.get('/users/profile/edit', (req, res, next) => {
         user: dbRes,
         style: ['profile.css'],
       })
-      .catch((err) => next(err));
-  });
+     
+  }) .catch((err) => next(err));;
 });
 
 module.exports = router;

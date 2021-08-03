@@ -23,10 +23,11 @@
       <a href='/' class='active'>PineaPlanner</a>
       <a href='/recipes'>Recipes</a>
       {{#unless isLoggedIn}}
-
-        <a href='/signup' class='right'>Signup</a>
-        <a href='/login' class='right'>Login</a>
-
+        
+          <a class='right open-modal-login'>Login</button>
+          <a class='right open-modal-signup'>Signup</button>
+        
+        
       {{/unless}}
       {{#if isLoggedIn}}
         <a href='/planner'>Meal planner</a>
@@ -41,8 +42,73 @@
         ></i></a>
     </nav>
 
+    <div id="modal-overlay" class="closed">
+
+    </div>
     {{{body}}}
 
+
+<div class="modal-signup" role="dialog" aria-labelledby="Modal_Title" aria-describedby="Modal_Description" aria-hidden="true" style="display: none">
+  <div class='wrapper modal-content'>
+    <h1>Create an account</h1>
+      <form method='POST' action='/signup'>
+        <div class='input'>
+          <label for='username'>Username </label>
+          <input id='username' type='text' name='userName' placeholder='Albert' required/>
+        </div>
+        <div class='input'>
+          <label for='email'>Email </label>
+          <input id='email' type='email' name='email' placeholder='*****@gmail.com' required />
+        </div>
+        <div class='input'>
+          <label for='password'>Password</label>
+          <input id='password' type='password' name='password' placeholder='••••••' required />
+        </div>
+        
+        <button type='submit'>Create Account</button>
+      </form>
+      
+      <p>Already have an account ? <a href='/login' class='btn-sign'>Log In</a></p>
+      <button class='right close-modal-signup'>Close</button>
+  </div>
+</div>
+
+<div class="modal-login" role="dialog" aria-labelledby="Modal_Title" aria-describedby="Modal_Description" aria-hidden="true" style="display: none">
+  <div class='wrapper modal-content'>
+<h1>Log in</h1>
+  <form method='POST' action='/login'>
+    <div class='input'>
+      <label for='email'>Email </label>
+      <input
+        id='email'
+        type='email'
+        name='email'
+        
+        placeholder='alice@gmail.com'
+        required
+      />
+    </div>
+    <div class='input'>
+      <label for='password'>Password </label>
+      <input
+        id='password'
+        type='password'
+        name='password'
+        placeholder='••••••'
+        
+        required
+      />
+    </div>
+    <button type='submit'>Log In</button>
+  </form>
+  <p>Don't have an account yet ?
+    <a href='/signup' class='btn-sign'>Sign Up</a></p>
+    <button class='right close-modal-login'>Close</button>
+  </div>
+  
+</div>  
+
     <script src='/javascripts/homeStyle.js'></script>
+    <script src="/scripts/authPageScript.js"></script>
   </body>
 </html>
