@@ -18,6 +18,19 @@ const tagsForm = document.getElementById("filterTags");
 const closeModalButton = document.getElementById("close-modal");
 const modal = document.getElementById("modal");
 const modalOverlay = document.getElementById("modal-overlay");
+closeModalButton.onclick= ()=>{
+    modal.classList.toggle("closed");
+    modalOverlay.classList.toggle("closed");
+}
+
+const modalImage=           document.getElementById("modalImage");
+const modalTagsWrapper=     document.getElementById("modalTagsWrapper");
+const ingredientList=       document.getElementById("ingredientList");
+const modalRecipeTitle=     document.getElementById("recipeTitle");
+const modalSummarry=        document.getElementById("modalSummarry");
+const readyInMin=           document.getElementById("readyInMin");
+const servings=             document.getElementById("servings");
+const instructionsList=     document.getElementById("instructionsList");
 
 
 let currentPage = 1;
@@ -30,28 +43,66 @@ buttonPrevPage.onclick=goPreviousPage;
 buttonSearch.onclick=handleChange;
 tagsForm.onchange=handleChange;
 
-closeModalButton.onclick= ()=>{
-    modal.classList.toggle("closed");
-    modalOverlay.classList.toggle("closed");
-}
-let spanModal = document.getElementById("spanModal");
+
 //Section that runs when you load the pageCount
 addClicks();
 
 
-function showModal(id){
-    spanModal.innerText=id;
 
+function showModal(id){
     axios.get(`/recipes/page/${id}`)
         .then((dbRes)=>{
             let recipe = dbRes.data;
-            
-            
+            cleanModal();
+            fillModal(recipe) ;           
         })
         .catch((error)=>{console.log(error)});
 
     modal.classList.toggle("closed");
     modalOverlay.classList.toggle("closed");
+}
+
+function cleanModal(){
+    modalTagsWrapper.innerHTML="";
+    ingredientList.innerHTML="";
+    instructionsList.innerHTML="";
+};
+
+function fillModal(recipe){
+    modalImage.src=recipe.image;
+
+    let tagList =[];
+    tagList.push({name: "cheap",        value: recipe.cheap});
+    tagList.push({name:"dairy-free",    value: recipe.dairyFree});
+    tagList.push({name:"gluten-free",   value: recipe.glutenFree});
+    tagList.push({name:"vegan",         value: recipe.vegan});
+    tagList.push({name:"vegetarian",    value: recipe.vegetarian});
+    tagList.push({name:"very-healthy",  value: recipe.vegetarian});
+    tagList.push({name:"very-popular",  value: recipe.vegetarian});
+
+    tagList.forEach((tag)=>{
+        if (tag.value===true){
+            modalTagsWrapper.innerHTML+=`<span class="modalTag">${tag.name}</span>`
+        }
+    });
+
+    recipe.ingredients.forEach((ingredient)=>{
+        ingredientList.innerHTML+=`
+            <li>
+                <span class="ingredName">${ingredient.name}</span>
+                <span>: </span>
+                <span class="ingredAmount">${ingredient.amount}</span>
+                <span> </span>
+                <span class="ingredUnit">${ingredient.unit}</span>
+            </li>`;
+    })
+
+    modalRecipeTitle.innerText=recipe.title;
+    modalSummarry.innerHTML=recipe.summary;
+    readyInMin.innerText=recipe.readyInMinutes;
+    servings.innerText=recipe.servings;
+    instructionsList.innerHTML=recipe.instructions;
+
 }
 
 function addClicks(){
@@ -144,7 +195,6 @@ function goPreviousPage(){
 function refreshDisplay(recipeList){
     let allRecipeNumber = recipeList.allPage;
     allPage = Math.ceil(allRecipeNumber/recipePerPage);
-    console.log(`allPage`, allPage)
     currentPageDisplay.innerText=currentPage;
     allPageDisplay.innerText=allPage;
     recipesContainer.innerHTML="";
