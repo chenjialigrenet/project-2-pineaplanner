@@ -18,13 +18,14 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: var(--mint-green);
+  background-color: white;
+  /* border: 1px solid var(--dark-blue); */
 }
 
 .topnav a {
   float: left;
   display: block;
-  color: #ddd;
+  color: rgb(117, 114, 114);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -32,13 +33,13 @@ body {
 }
 
 .topnav a:hover {
-  /* background-color: #ddd; */
+  background-color: var(--dark-blue);
   color: white;
 }
 
 .topnav a.active {
   /* background-color: var(--pale-yellow); */
-  color: white;
+  color: var(--salmon);
   font-weight: bold;
 }
 
@@ -70,4 +71,9 @@ body {
     display: block;
     text-align: left;
   }
+}
+
+.right-wrapper {
+  display: flex;
+  align-items: flex-end;
 }
