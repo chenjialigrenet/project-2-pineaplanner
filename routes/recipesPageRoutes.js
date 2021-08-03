@@ -83,8 +83,12 @@ router.post("/recipes/page/:page", (req, res, next) => {
     
     recipeModel.find(query)
             .then((allRecipes) => {
+            let allPage= allRecipes.length;
             let recipesOnPage = pageHelper.returnThePage(allRecipes,page)
-            res.status(200).json(recipesOnPage);
+            let response ={};
+            response.allPage=allPage;
+            response.recipes=recipesOnPage;
+            res.status(200).json(response);
         })
             .catch((err) => {
             res.status(500).json(err);

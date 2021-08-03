@@ -45,11 +45,12 @@ body{
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: 210px;
+    
 
 }
 
 .recipe-cards{
-    background-color: #00c49a49;
+    background-color:#00C49A ;
     border: 2px solid var(--colorCoral);
     border-radius: 10px;
     display: flex;
