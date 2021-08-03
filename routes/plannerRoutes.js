@@ -35,7 +35,7 @@ function renderPlan(plan, req, res, next) {
 }
 
 router.get('/planner', (req, res, next) => {
-  console.log(req.session.currentUserId);
+  //console.log(req.session.currentUserId);
   Plan.findOne({
     owner: req.session.currentUserId,
   })
@@ -93,15 +93,11 @@ router.post('/planner/:planId/add-recipe', (req, res, next) => {
         if (existingPlannedRecipe) {
           existingPlannedRecipe.recipe = recipe;
         } else {
-          plan.recipes
-            .push({
-              recipe,
-              dayOfWeek: req.body.dayOfWeek,
-              mealName: req.body.mealName,
-            })
-            .catch((err) => {
-              next(err);
-            });
+          plan.recipes.push({
+            recipe,
+            dayOfWeek: req.body.dayOfWeek,
+            mealName: req.body.mealName,
+          });
         }
 
         plan
