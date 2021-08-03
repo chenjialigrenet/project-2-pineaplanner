@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 
 //GET Planner page//
 router.get('/planner', async (req, res, next) => {
-  Plan.find({Monday: ''}).populate('breakfast', 'lunch', 'dinner')
+  Plan.find({title: 'First Plan'}).populate('Monday')
     .then((newPlan) => {
       console.log(newPlan)
       res.render('planner.hbs', {

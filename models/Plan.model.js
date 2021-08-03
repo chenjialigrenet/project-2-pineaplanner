@@ -2,7 +2,7 @@ const mongoose= require("mongoose");
 const Schema = mongoose.Schema;
 const planSchema= new Schema({
 
-    title: String,
+    title: {type : String, default: 'First Plan'},
     dateOfCreation: Date,
     owner: {
         type: Schema.Types.ObjectId,
