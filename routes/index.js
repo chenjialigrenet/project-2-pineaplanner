@@ -13,17 +13,6 @@ router.get('/', (req, res, next) => {
   });
 });
 
-//GET Planner page//
-// router.get('/planner',  (req, res, next) => {
-//    Recipe.find().then((dbRes) => {
-//     res.render('planner.hbs', {
-//       style: ['mealPlannerStyle.css'],
-//       recipes: dbRes
-//       // plan: newPlan,
-//     });
-//   })
-// });
-
 //GET myplans page//
 router.get('/myplans', (req, res, next) => {
   res.render('myplans.hbs', {
@@ -61,6 +50,17 @@ router.get('/recipes', async (req, res, next) => {
     next(err);
   }
 });
+
+//GET Planner page//
+// router.get('/planner',  (req, res, next) => {
+//    Recipe.find().then((dbRes) => {
+//     res.render('planner.hbs', {
+//       style: ['mealPlannerStyle.css'],
+//       recipes: dbRes
+//       // plan: newPlan,
+//     });
+//   })
+// });
 
 // router.post('/create-planner', async (req, res, next) => {
 //   data = req.body.recipes
