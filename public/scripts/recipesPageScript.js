@@ -14,6 +14,11 @@ const searchBar = document.getElementById("searchText");
 const dishTypeBoxes= document.querySelectorAll(".checkboxDishType");
 const tagsForm = document.getElementById("filterTags");
 
+//modal
+const closeModalButton = document.getElementById("close-modal");
+const modal = document.getElementById("modal");
+const modalOverlay = document.getElementById("modal-overlay");
+
 
 let currentPage = 1;
 let allPage = allPageDisplay.innerText;
@@ -25,6 +30,39 @@ buttonPrevPage.onclick=goPreviousPage;
 buttonSearch.onclick=handleChange;
 tagsForm.onchange=handleChange;
 
+closeModalButton.onclick= ()=>{
+    modal.classList.toggle("closed");
+    modalOverlay.classList.toggle("closed");
+}
+let spanModal = document.getElementById("spanModal");
+//Section that runs when you load the pageCount
+addClicks();
+
+
+function showModal(id){
+    spanModal.innerText=id;
+
+    axios.get(`/recipes/page/${id}`)
+        .then((dbRes)=>{
+            let recipe = dbRes.data;
+            
+            
+        })
+        .catch((error)=>{console.log(error)});
+
+    modal.classList.toggle("closed");
+    modalOverlay.classList.toggle("closed");
+}
+
+function addClicks(){
+    let recipeCards = document.querySelectorAll(".recipe-cards");
+
+    recipeCards.forEach((card)=>{
+        card.addEventListener("click",()=>{
+            showModal(card.id);
+        })
+    })
+}
 
 
 
@@ -112,11 +150,11 @@ function refreshDisplay(recipeList){
     recipesContainer.innerHTML="";
     recipeList.recipes.forEach((recipe)=>{
     recipesContainer.innerHTML+=
-        `<div class="recipe-cards">
-            <a href="/recipe/${recipe.id}}">
+        `<div class="recipe-cards" id="${recipe.id}">
                 <img src="${recipe.image}" alt="image">
                 <h5> ${recipe.title}</h5>
-            </a>
          </div>`
             })
+
+    addClicks();
 }

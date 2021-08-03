@@ -96,6 +96,20 @@ router.post("/recipes/page/:page", (req, res, next) => {
   });
 
 
+//GET One Recipe Page//
+router.get('/recipes/page/:id', (req, res, next) => {
+    
+    recipeModel.findById(req.params.id)
+      .then((foundRecipe) => {
+        console.log(`foundRecipe`, foundRecipe)
+        res.status(200).json(foundRecipe);
+      })
+      .catch((err) => {
+        next(err);
+      });
+  });
+
+
 
   
 module.exports = router;
