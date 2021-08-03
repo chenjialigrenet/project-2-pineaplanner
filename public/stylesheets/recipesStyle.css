@@ -1,3 +1,8 @@
+:root{
+    --salmon: #fb8f67;
+    --dark-blue: #156064;
+}
+
 #recipes-body-wrapper {
   display: flex;
   width: 100%;
@@ -10,6 +15,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 40px;
+  color:var(--dark-blue);
 }
 
 #recipes-recipe-right {
@@ -47,7 +53,7 @@
 }
 
 .recipe-cards {
-  background-color: #00c49a;
+  background-color: lightgray;
   border: 0px solid transparent;
   border-radius: 10px;
   display: flex;
@@ -57,6 +63,7 @@
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   margin-right: 20px;
+  color: var(--dark-blue);
 }
 
 .recipe-cards a {
@@ -65,6 +72,9 @@
 
 .recipe-cards:hover {
   transform: scale(1.05);
+  background-color: var(--dark-blue);
+  color:white;
+
 }
 
 .recipe-cards img {
@@ -77,12 +87,12 @@
   text-align: center;
 }
 
-ul {
+#recipes-tags-wrapper ul {
   list-style-type: none;
   padding: 0;
 }
 
-li {
+#recipes-tags-wrapper li {
   list-style: none;
 }
 
@@ -100,7 +110,8 @@ li {
     border-radius: 15px;
     transform: translate(-50%, -50%);
     animation: fadeIn 0.4s;
-    overflow: hidden;
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
 }
 
 @media (min-width: 480px){
@@ -142,30 +153,74 @@ li {
   }
   #modalWrapper{
       display: flex;
+      max-height: calc(100% - 20px);
+    overflow-y: auto;
       
   }
 
   #modalLeftSide{
     width: 30%;
-    margin: 5px;
-    
+    margin: 5px;  
   }
+
+  #modalLeftSide li{ 
+    margin: 3px 20px;
+  }
+
+ .modalTag{
+     background-color: var(--salmon);
+     color: white;
+     font-style: italic;
+     font-weight: bolder;
+     margin-right: 10px;
+     margin-bottom: 10px;
+ }
 
   #modalRightSide{
     width: 70%;
     margin: 5px;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 210px);
-    overflow-y: auto;
+    
   }
+
+  #modalRightSide li{ 
+    margin: 3px 30px;
+  }
+
+      #ingredientList{
+    display:list-item;
+  }
+
+  #modalRightSide a{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color:black;    
+  }
+
+  #modalRightSide h3,#modalRightSide p{
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+
+
 
   #modalLeftSide img{
     max-width: 100%;
+    margin-bottom: 5px;
+  }
+
+  #recipeTitle{
+      align-self: center;
   }
 
   #close-modal{
       align-self: flex-end;
+      margin:5px 15px;
+      height:1.5rem;
+      width:1.5rem;
   }
 
 

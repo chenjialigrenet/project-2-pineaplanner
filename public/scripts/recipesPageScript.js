@@ -91,7 +91,7 @@ function fillModal(recipe){
             <li>
                 <span class="ingredName">${ingredient.name}</span>
                 <span>: </span>
-                <span class="ingredAmount">${ingredient.amount}</span>
+                <span class="ingredAmount">${ingredient.amount.toFixed(2)}</span>
                 <span> </span>
                 <span class="ingredUnit">${ingredient.unit}</span>
             </li>`;
