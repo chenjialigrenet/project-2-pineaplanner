@@ -50,10 +50,7 @@ h1 {
   background-color: var(--pink);
   display: inline-block;
   text-align: center;
-  white-space: nowrap;
   vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
   border-radius: 10px;
 }
 
