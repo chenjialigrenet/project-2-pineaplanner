@@ -17,8 +17,9 @@ form {
 }
 
 input {
-  font-size: 16px;
   color: var(--dark-blue);
+  padding: 0.3em 1.5em 0.3em 1em;
+  font-size: 1em;
 }
 
 p {
@@ -43,9 +44,9 @@ button {
   font-size: 1em;
   margin: 0.8em 0 0.8em 0;
   border-radius: 4px;
-  border-style: none;
+  border: none;
   background-color: var(--pink);
-  padding: 0.5em 1.2em 0.5em 1.2em;
+  padding: 0.5em 3.8em 0.5em 3.8em;
 }
 
 button:hover {
@@ -56,22 +57,10 @@ button:hover {
   border-radius: 4px;
 }
 
-.btn-start {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  padding: 1em 1.8em 1em 1.8em;
-  background-color: var(--pink);
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 10px;
+p {
+  margin-top: 1em;
 }
 
-.btn-start:hover {
-  color: white;
-  background-color: var(--salmon);
+.input {
+  padding-bottom: 1em;
 }

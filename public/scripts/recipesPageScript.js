@@ -40,7 +40,9 @@ currentPageDisplay.innerText=currentPage;
 
 buttonNextPage.onclick=goNextPage;
 buttonPrevPage.onclick=goPreviousPage;
-buttonSearch.onclick=handleChange;
+buttonSearch.onclick=()=>{
+    currentPage=1;
+    handleChange();};
 tagsForm.onchange=handleChange;
 
 
@@ -54,12 +56,13 @@ function showModal(id){
         .then((dbRes)=>{
             let recipe = dbRes.data;
             cleanModal();
-            fillModal(recipe) ;           
+            fillModal(recipe) ;  
+            modal.classList.toggle("closed");
+            modalOverlay.classList.toggle("closed");         
         })
         .catch((error)=>{console.log(error)});
 
-    modal.classList.toggle("closed");
-    modalOverlay.classList.toggle("closed");
+
 }
 
 function cleanModal(){
@@ -91,7 +94,7 @@ function fillModal(recipe){
             <li>
                 <span class="ingredName">${ingredient.name}</span>
                 <span>: </span>
-                <span class="ingredAmount">${ingredient.amount}</span>
+                <span class="ingredAmount">${ingredient.amount.toFixed(2)}</span>
                 <span> </span>
                 <span class="ingredUnit">${ingredient.unit}</span>
             </li>`;
@@ -199,8 +202,9 @@ function refreshDisplay(recipeList){
     allPageDisplay.innerText=allPage;
     recipesContainer.innerHTML="";
     recipeList.recipes.forEach((recipe)=>{
+        console.log(recipe);
     recipesContainer.innerHTML+=
-        `<div class="recipe-cards" id="${recipe.id}">
+        `<div class="recipe-cards" id="${recipe._id}">
                 <img src="${recipe.image}" alt="image">
                 <h5> ${recipe.title}</h5>
          </div>`
