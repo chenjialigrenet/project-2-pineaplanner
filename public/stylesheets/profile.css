@@ -1,3 +1,41 @@
-body {
-  background-color: dodgerblue;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: var(--dark-blue);
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+
+li {
+  font-size: 16px;
+  padding-bottom: 1em;
+  list-style: none;
+}
+
+.btn-edit {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.7em 4.8em 0.7em 4.8em;
+  background-color: var(--pink);
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-edit:hover {
+  color: white;
+  background-color: var(--salmon);
+}
+
+input {
+  padding: 0.5em 1.5em 0.5em 1em;
+  font-size: 1em;
 }

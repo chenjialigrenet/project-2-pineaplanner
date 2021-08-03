@@ -1,22 +1,23 @@
-<h1>User Profile</h1>
-
-<form action='/users/profile/edit' method='POST'>
-  <ul>
-    <li><label for='name'>User name:
+<div class='wrapper'>
+  <h1>User Profile</h1>
+  <form action='/users/profile/edit' method='POST'>
+    <ul>
+      <li>
         <input
           type='text'
           id='name'
           name='userName'
           value='{{user.userName}}'
-        /></label></li>
-    <li><label for='email'>Email:
+        /></li>
+      <li>
         <input
           type='email'
           id='email'
           name='email'
           value='{{user.email}}'
-        /></label></li>
-    {{!-- <li>{{user.password}}</li> --}}
-  </ul>
-  <button>Confirm</button>
-</form>
+        /></li>
+      {{!-- <li>{{user.password}}</li> --}}
+    </ul>
+    <button class='btn-edit'>Confirm</button>
+  </form>
+</div>
