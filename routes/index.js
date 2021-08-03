@@ -67,18 +67,4 @@ router.get('/recipes', async (req, res, next) => {
   }
 });
 
-//GET One Recipe Page//
-router.get('/recipes/:id', (req, res, next) => {
-  Recipe.findById(req.params.id)
-    .then((dbRes) => {
-      res.render('oneRecipe.hbs', {
-        recipe: dbRes,
-        style: ['oneRecipeStyle.css'],
-      });
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
 module.exports = router;

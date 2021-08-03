@@ -22,6 +22,7 @@ body {
   /* border: 1px solid var(--dark-blue); */
 }
 
+
 .topnav a {
   float: left;
   display: block;
@@ -46,6 +47,8 @@ body {
 .topnav .icon {
   display: none;
 }
+
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {

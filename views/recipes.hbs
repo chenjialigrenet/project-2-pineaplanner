@@ -69,14 +69,45 @@
 </div>
 
 
-<div id="modal-overlay" class="closed">
-    
 
+
+
+<div id="modal-overlay" class="closed">
 </div>
 
 <div id="modal"class="closed" >
-<button id="close-modal">X</button>
-<span id="spanModal"></span>
+    <div id="modalWrapper">
+
+        <div id="modalLeftSide">
+            <img id="modalImage" src="https://spoonacular.com/recipeImages/646868-556x370.jpg" alt="image">
+            <div id="modalTagsWrapper">
+
+            </div>
+
+            <ul id="ingredientList">
+                <li>
+                    <span class="ingredName">: </span>
+                    <span>: </span>
+                    <span class="ingredAmount"></span>
+                    <span class="ingredUnit"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div id="modalRightSide">
+            <button id="close-modal">X</button>
+            <h2 id="recipeTitle"></h2>
+            <h3>Summary</h3>
+            <p id="modalSummarry"></p>
+            
+            <p>Ready in : <span id="readyInMin"></span> min, Number of Servings : <span id="servings">4</span> </p>
+            <h3>Instructions</h3>
+            
+            <ol id="instructionsList">
+            </ol>
+        </div>
+    </div>
+
 
 </div>
 
