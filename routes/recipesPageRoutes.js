@@ -81,7 +81,7 @@ router.post("/recipes/page/:page", (req, res, next) => {
     query= {...queryDishType,...queryDiets,...queryTitle};
     console.log(`query`, query);
     
-    recipeModel.find(query)
+    recipeModel.find(query).sort({title:1})
             .then((allRecipes) => {
             let allPage= allRecipes.length;
             let recipesOnPage = pageHelper.returnThePage(allRecipes,page)
