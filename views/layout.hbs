@@ -4,6 +4,10 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>PineaPlanner</title>
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+    />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     {{#each style}}
       <link rel='stylesheet' href='/stylesheets/{{this}}' />
@@ -15,24 +19,26 @@
   </head>
   <body>
 
-    <nav>
-      <a href='/'>Home</a>
-      <a href='/planner'>Meal planner</a>
-      <a href='/myplans'>My Plans</a>
+    <nav class='topnav' id='myTopnav'>
+      <a href='/' class='active'>PineaPlanner</a>
       <a href='/recipes'>Recipes</a>
-      <div class='btn-right'>
-        {{#unless isLoggedIn}}
-          <a href='/signup'>Signup</a>
-          <a href='/login'>Login</a>
-        {{/unless}}
-        {{#if isLoggedIn}}
-          <a href='/users/profile'>Profile</a>
-          <a href='/logout'>Logout</a>
-        {{/if}}
-      </div>
-
+      {{#unless isLoggedIn}}
+        <a href='/signup'>Signup</a>
+        <a href='/login'>Login</a>
+      {{/unless}}
+      {{#if isLoggedIn}}
+        <a href='/planner'>Meal planner</a>
+        <a href='/myplans'>My Plans</a>
+        <a href='/users/profile'>Profile</a>
+        <a href='/logout'>Logout</a>
+      {{/if}}
+      <a href='javascript:void(0);' class='icon' onclick='myFunction()'><i
+          class='fa fa-bars'
+        ></i></a>
     </nav>
 
     {{{body}}}
+
+    <script src='/javascripts/homeStyle.js'></script>
   </body>
 </html>

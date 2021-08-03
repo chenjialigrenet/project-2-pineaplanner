@@ -1,12 +1,16 @@
-<div>
-  <h1>PineaPlanner</h1>
+<div class='flex-wrapper'>
+  <div class='title'>
+    <h1>PineaPlanner</h1>
+  </div>
+  <div class='pitch'>
+    <h2>Optimize time and life, Minimize wastes and hustle</h2>
+    <p>Eating smart, reducing food waste, no more panicing on what to eat</p>
+  </div>
+  <div class='button'>
+    {{#if isLoggedIn}}
+      <a href='/planner' class='btn-start'>Get Started</a>
+    {{else}}
+      <a href='/signup' class='btn-start'>Get Started</a>
+    {{/if}}
+  </div>
 </div>
-<div class='pitch'>
-  <h2>Optimize time and life, Minimize wastes and hustle</h2>
-  <p>Eating smart, reducing food waste, no more panicing on what to eat</p>
-</div>
-{{#if isLoggedIn}}
-  <a href='/planner' class='btn-start'>Get Started</a>
-{{else}}
-  <a href='/signup' class='btn-start'>Get Started</a>
-{{/if}}

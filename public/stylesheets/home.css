@@ -1,30 +1,4 @@
-body {
-  background-image: url('../images/background-img.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-div {
-  padding-left: 1em;
-}
-
-h1 {
-  font-size: 9em;
-  color: var(--pale-yellow);
-  padding-top: 0.7em;
-  margin-left: 1em;
-}
-
-.pitch {
-  text-align: right;
-  font-size: 1.3em;
-  margin-right: 5em;
-}
-
-.btn-start {
-  position: absolute;
-  margin-left: 70%;
-  margin-top: 2em;
+/* .btn-start {
   padding: 1em 1.5em 1em 1.5em;
   background-color: var(--salmon);
   display: inline-block;
@@ -34,4 +8,21 @@ h1 {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 10px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.pitch {
+  text-align: center;
 }
