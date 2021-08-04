@@ -50,7 +50,8 @@
 
 <div class="modal-signup" role="dialog" aria-labelledby="Modal_Title" aria-describedby="Modal_Description" aria-hidden="true" style="display: none">
   <div class='wrapper modal-content'>
-    <h1>Create an account</h1>
+     <button class='right close-modal-signup'>X</button>
+    <h1>Sign Up</h1>
       <form method='POST' action='/signup'>
         <div class='input'>
           <label for='username'>Username </label>
@@ -69,12 +70,13 @@
       </form>
       
       <p>Already have an account ? <a href='/login' class='btn-sign'>Log In</a></p>
-      <button class='right close-modal-signup'>Close</button>
+     
   </div>
 </div>
 
 <div class="modal-login" role="dialog" aria-labelledby="Modal_Title" aria-describedby="Modal_Description" aria-hidden="true" style="display: none">
   <div class='wrapper modal-content'>
+  <button class='right close-modal-login'>X</button>
 <h1>Log in</h1>
   <form method='POST' action='/login'>
     <div class='input'>
@@ -103,7 +105,7 @@
   </form>
   <p>Don't have an account yet ?
     <a href='/signup' class='btn-sign'>Sign Up</a></p>
-    <button class='right close-modal-login'>Close</button>
+    
   </div>
   
 </div>  
