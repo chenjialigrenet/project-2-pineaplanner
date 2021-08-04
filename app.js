@@ -16,6 +16,7 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const recipesPageRouter = require('./routes/recipesPageRoutes');
 const plannerRoutes = require('./routes/plannerRoutes');
+const planner2Routes = require('./routes/planner2Routes');
 const app = express();
 
 // SESSION SETUP
@@ -48,6 +49,7 @@ app.use('/', usersRouter);
 app.use('/', authRouter);
 app.use('/', recipesPageRouter);
 app.use('/', plannerRoutes);
+app.use('/', planner2Routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

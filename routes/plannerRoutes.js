@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Recipe = require('../models/Recipe.model');
 const Plan = require('../models/Plan.model');
 const User = require('../models/User.model');
+const verifyLoggedIn = require("../middlewares/requireAuth");
 
 function renderPlan(plan, req, res, next) {
   const days = [
@@ -34,7 +35,7 @@ function renderPlan(plan, req, res, next) {
   });
 }
 
-router.get('/planner', (req, res, next) => {
+router.get('/planner',verifyLoggedIn, (req, res, next) => {
   //console.log(req.session.currentUserId);
   Plan.findOne({
     owner: req.session.currentUserId,
