@@ -16,14 +16,11 @@
       margin-top: 2rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
   }
 
   #planTitle{
     font-style: italic;
-  }
-
-  #titleLine{
-      margin-left: 5%;
   }
 
   #planGridWrapper{
@@ -34,6 +31,12 @@
     grid-auto-rows: 180px;
     gap: 2px;
     align-self: center;
+}
+
+#planHeader{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .testDiv{

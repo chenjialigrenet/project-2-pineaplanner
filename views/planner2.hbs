@@ -1,7 +1,21 @@
 
 <div id="planContainer">
 
+<div id="planHeader">
 <h3 id="titleLine">Name of the plan: <span id="planTitle" contenteditable="true">My plan name</span></h3>
+<div>
+    <button>Save</button>
+    <button>Create new plan</button>
+    <label for="choosePlan">Choose another plan</label>
+    <select name="choosePlan">
+        <option>Choose another plan</option>
+        <option>My plan 1</option>
+        <option>I get my six pack</option>
+        <option>Fuck</option>
+    </select>
+</div>
+
+</div>
 
 <div id="planGridWrapper">
     {{!-- Days --}}
@@ -39,8 +53,7 @@
     <div class="testDiv dinner thursday"><button class="addButton">+</button></div>
     <div class="testDiv dinner friday"><button class="addButton">+</button></div>
     <div class="testDiv dinner saturday"><button class="addButton">+</button></div>
-    <div class="testDiv dinner sunday"><button class="addButton">+</button></div>
-
+    <div class="testDiv dinner sunday"><button class="addButton">+</button></div>   
 </div>
 
 </div>
