@@ -113,7 +113,10 @@
 </div>  
 
     {{!-- <script src='/scripts/homeStyle.js'></script> --}}
+    {{#unless isLoggedIn}}
     <script src="/scripts/authPageScript.js"></script>
+    {{/unless}}    
+    
     <script src='/scripts/homeStyle.js'></script>
   </body>
 </html>
