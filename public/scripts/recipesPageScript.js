@@ -14,6 +14,7 @@ const searchBar = document.getElementById("searchText");
 const dishTypeBoxes= document.querySelectorAll(".checkboxDishType");
 const tagsForm = document.getElementById("filterTags");
 
+
 //modal
 const closeModalButton = document.getElementById("close-modal");
 const modal = document.getElementById("modal");
