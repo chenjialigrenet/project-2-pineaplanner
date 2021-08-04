@@ -203,7 +203,7 @@ function refreshDisplay(recipeList){
     allPageDisplay.innerText=allPage;
     recipesContainer.innerHTML="";
     recipeList.recipes.forEach((recipe)=>{
-        console.log(recipe);
+        
     recipesContainer.innerHTML+=
         `<div class="recipe-cards" id="${recipe._id}">
                 <img src="${recipe.image}" alt="image">

@@ -9,7 +9,7 @@ const itemPerPageVar = process.env.RECIPE_PER_PAGE;
 // GET home page //
 router.get('/', async (req, res, next) => {
   Recipe.find().then((result) => {
-    console.log(result)
+    
     res.render('home.hbs', {
       style: ['home.css'],
       recipes: result,

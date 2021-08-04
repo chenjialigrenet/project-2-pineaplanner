@@ -4,14 +4,14 @@
 <div id="planHeader">
 <h3 id="titleLine">Name of the plan: <span id="planTitle" contenteditable="true">My plan name</span></h3>
 <div>
-    <button>Save</button>
-    <button>Create new plan</button>
+    <button id="buttonSave">Save</button>
+    <button id="buttonCreate">Create new plan</button>
     <label for="choosePlan">Choose another plan</label>
-    <select name="choosePlan">
+    <select id="selectPlan" name="choosePlan">
         <option>Choose another plan</option>
-        <option>My plan 1</option>
-        <option>I get my six pack</option>
-        <option>Fuck</option>
+        {{#each plans}}
+        <option id="{{this._id}}">{{this.title}}</option>
+        {{/each}}
     </select>
 </div>
 
