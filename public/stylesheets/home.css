@@ -1,65 +1,51 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root{
+:root {
   --salmon: #fb8f67;
   --dark-blue: #156064;
   --login-border: #156064;
   --login-background: #156064;
 }
 
-/* .modal {
-  background-color: rgba(255, 255, 255, 0.95);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(248, 245, 245, 0.61);
   border-radius: 5px;
-  color: #333;
-  line-height: 1.5;
-  max-width: 50%;
-  padding: 1rem 2rem;
+  max-width: 80%;
+  max-height: fit-content;
+  padding: 5rem 3rem;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .modal {
+  .flex-wrapper {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  .warning {
-    display: none;
+    background-color: rgba(248, 245, 245, 0.61);
   }
 }
 
-html,
-body {
+.container {
+  background-image: url('/images/jimmy-dean-Yn0l7uwBrpw-unsplash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   width: 100%;
-} */
+}
 
-/* .container {
+.modal {
   align-items: center;
   display: flex;
   justify-content: center;
   height: 100%;
   width: 100%;
-} */
-
-.flex-wrapper {
-  /* background-image: url('/images/jimmy-dean-Yn0l7uwBrpw-unsplash.jpg');
-  background-size: cover;
-  background-repeat: none; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 6%;
-  height: 100vh;
 }
-
-/* .blur {
-  width: 60vw;
-  background-color: rgba(119, 136, 153, 0.692);
-} */
 
 h1 {
   color: var(--dark-blue);
@@ -74,7 +60,7 @@ h1 {
     font-size: 2em;
   }
   .pitch p {
-    font-size: 1em;
+    font-size: 1.2em;
   }
 }
 
@@ -84,7 +70,7 @@ h1 {
 }
 
 .pitch h2 {
-  color: var(--salmon);
+  color: #e0693d;
 }
 
 .pitch p {
@@ -93,10 +79,10 @@ h1 {
 
 .btn-start {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
   padding: 1em 1.8em 1em 1.8em;
-  background-color: var(--pink);
+  background-color: var(--salmon);
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -105,7 +91,5 @@ h1 {
 
 .btn-start:hover {
   color: white;
-  background-color: var(--salmon);
+  background-color: var(--dark-blue);
 }
-
-
