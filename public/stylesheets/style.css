@@ -97,7 +97,7 @@ body {
   text-align: center;
   justify-content: center;
   height: 500px;
-  width: 500px;
+  width: 400px;
   z-index: 1000;
 }
 
@@ -114,7 +114,7 @@ body {
   text-align: center;
   justify-content: center;
   height: 500px;
-  width: 500px;
+  width: 400px;
   z-index: 1000;
 }
 
@@ -156,6 +156,7 @@ body {
 
 .wrapper.modal-content h1{
   color: var(--login-border);
+  font-size: 4.5rem;
 }
 
 .wrapper.modal-content>button{
