@@ -55,21 +55,21 @@
       <form method='POST' action='/signup'>
         <div class='input'>
           <label for='username'>Username </label>
-          <input id='username' type='text' name='userName' placeholder='Albert' required/>
+          <input id='username-signup' type='text' name='userName' placeholder='Albert' required/>
         </div>
         <div class='input'>
           <label for='email'>Email </label>
-          <input id='email' type='email' name='email' placeholder='*****@gmail.com' required />
+          <input id='email-signup' type='email' name='email' placeholder='*****@gmail.com' required />
         </div>
         <div class='input'>
           <label for='password'>Password</label>
-          <input id='password' type='password' name='password' placeholder='••••••' required />
+          <input id='password-signup' type='password' name='password' placeholder='••••••' required />
         </div>
         
         <button type='submit'>Create Account</button>
       </form>
       
-      <p>Already have an account ? <a href='/login' class='btn-sign'>Log In</a></p>
+      <p>Already have an account ? <a class='btn-sign close-modal-signup-to-login'>Log In</a></p>
      
   </div>
 </div>
@@ -102,9 +102,11 @@
       />
     </div>
     <button type='submit'>Log In</button>
+    
   </form>
-  <p>Don't have an account yet ?
-    <a href='/signup' class='btn-sign'>Sign Up</a></p>
+  <p>Don't have an account yet ?  <a class='btn-sign close-modal-login-to-signup'>Sign Up </a>
+    </p>
+    
     
   </div>
   

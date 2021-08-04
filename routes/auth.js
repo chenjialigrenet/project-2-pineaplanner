@@ -5,9 +5,7 @@ const bcrypt = require('bcryptjs');
 const SALT = 10;
 
 // SIGN UP ROUTES
-router.get('/signup', (req, res, next) => {
-  res.render('signup', { style: ['signInUp.css'] });
-});
+
 
 router.post('/signup', async (req, res, next) => {
   try {
@@ -27,7 +25,7 @@ router.post('/signup', async (req, res, next) => {
 
     const newUser = await User.create(data);
 
-    res.redirect('login');
+    res.redirect('/');
     console.log('New user created', newUser); //Just to test if the user is created, delete this line after the test
   } catch (error) {
     console.log(error); //To know what the error is, to delete when everything is working fine
@@ -39,9 +37,7 @@ router.post('/signup', async (req, res, next) => {
 });
 
 //SIGN IN ROUTES
-router.get('/login', (req, res, next) => {
-  res.render('login', { style: ['signInUp.css'] });
-});
+
 
 router.post('/login', async (req, res, next) => {
   try {
