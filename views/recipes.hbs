@@ -71,9 +71,7 @@
 </div>
 
 
-
-
-
+{{!-- Zsolt modal --}}
 <div id="modal-overlay" class="closed">
 </div>
 
@@ -107,16 +105,14 @@
 </div>
 
 
-
+{{!-- chenji modal --}}
 <div id="modal-overlay-addToPlanner" class="closed"></div>
     <div  id="modal-addToPlanner" class="closed">
         <div id="modalAddToPlannerWrapper">
 
-            <form method='POST' action='/recipes'>
-                <label for="recipe">Recipe:</label>
-                <selection name="recipe" id="recipe">
-                    {{!-- <option value=""></option> --}}
-                </selection>
+            <form method='POST' action='/planner2/add-to-plan' class="flex-wrapper">
+                {{!-- <label for="recipe">Planned meals:</label> --}}
+                <input type="hidden" name="recipeId" id="modal-recipe-id">
 
                 <label for="dayOfWeek">Choose a day:</label>
                 <select name="dayOfWeek" id="dayOfWeek">
@@ -136,7 +132,15 @@
                     <option value="Dinner">Dinner</option>
                 </select>   
 
+                <label for="plan">In the planner:</label> 
+                <select name="planId" id="plan">
+                    {{#each plans}}
+                    <option value="{{id}}">{{title}}</option>
+                    {{/each}}
+                </select> 
+                
                 <button class="btn-add" id="btn-add">Add to planner</button>
+                {{!-- <button id="close-modal">X</button> --}}
             </form>
         </div>
     </div>

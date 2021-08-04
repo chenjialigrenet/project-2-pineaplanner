@@ -27,6 +27,7 @@ planSchema.methods.recipeFor = function (dayOfWeek, mealName) {
 };
 
 const planModel = mongoose.model('Plan', planSchema);
+
 module.exports = planModel;
 //From slides
 // mealPlan.model

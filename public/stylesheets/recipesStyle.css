@@ -305,8 +305,25 @@ h2 {
     opacity: 1;
   }
 }
-#modalAddToPlannerWrapper {
+/* #modalAddToPlannerWrapper {
   display: flex;
+  flex-direction: column;
   max-height: calc(100% - 20px);
-  overflow-y: auto;
+  overflow-y: auto; 
+}*/
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+#dayOfWeek,
+#mealName,
+#plan,
+.btn-add,
+.btn-edit {
+  margin-bottom: 1rem;
 }
