@@ -13,12 +13,12 @@ router.get('/', (req, res, next) => {
   });
 });
 
-//GET myplans page//
-router.get('/myplans', (req, res, next) => {
-  res.render('myplans.hbs', {
-    style: ['myPlansStyle.css'],
-  });
-});
+//GET myplans page// TO BE REMOVED>>>>>
+// router.get('/myplans', (req, res, next) => {
+//   res.render('myplans.hbs', {
+//     style: ['myPlansStyle.css'],
+//   });
+// });
 
 //GET Recipes List page//
 router.get('/recipes', async (req, res, next) => {
