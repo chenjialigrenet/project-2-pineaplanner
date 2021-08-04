@@ -52,6 +52,15 @@
 
 <div id="recipes-recipe-right">
 
+
+<h1>Recipes</h1>
+<div id="recipes-recipe-wrapper">
+    
+    {{#each recipes}}
+        {{>recipeCard this}}
+    {{/each }}
+</div>
+    
 <div id="recipes-pageselector">
     <button id="prevPageButton"> ← </button>
     <span id="currentPage">1</span>
@@ -59,19 +68,15 @@
     <span id="allPage">{{allPages}}</span>
     <button id="nextPageButton"> → </button>
 </div>
-
-<div id="recipes-recipe-wrapper">
-    {{#each recipes}}
-        {{>recipeCard this}}
-    {{/each }}
-</div>
-
 </div>
 
 
 
 
-<div id="modal-overlay" class="closed"></div>
+
+<div id="modal-overlay" class="closed">
+</div>
+
 <div id="modal"class="closed" >
     <div id="modalWrapper">
 

@@ -30,7 +30,7 @@
         
       {{/unless}}
       {{#if isLoggedIn}}
-        <a href='/planner'>Meal planner</a>
+        <a href='/planner2'>Meal planner</a>
         {{!-- <a href='/myplans'>My Plans</a> --}}
 
         <a href='/users/profile' class='right'>Profile</a>
@@ -113,7 +113,10 @@
 </div>  
 
     {{!-- <script src='/scripts/homeStyle.js'></script> --}}
+    {{#unless isLoggedIn}}
     <script src="/scripts/authPageScript.js"></script>
+    {{/unless}}    
+    
     <script src='/scripts/homeStyle.js'></script>
     
   </body>

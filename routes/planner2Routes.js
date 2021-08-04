@@ -8,13 +8,25 @@ const verifyLoggedIn = require("../middlewares/requireAuth");
 
 
 router.get('/planner2', (req, res, next) => {
-    //console.log(req.session.currentUserId);
-    res.render("planner2.hbs",{
-            scripts: ['planner2Script.js'],
-            style: ["planner2Style.css"],
-});
+    Plan.find({owner: req.session.currentUserId})
+      .populate({path: 'recipes.recipe'})
+      .then((plans)=>{
+          res.render("planner2.hbs",{
+          scripts: ['planner2Script.js'],
+          style: ["planner2Style.css"],
+          plans: plans,})
+        })
+      .catch((error)=>console.log(error));
   });
 
 
+router.get("/planner2/:planId",(req,res,next)=>{
+      Plan.findById(req.params.planId)
+        .populate({path: 'recipes.recipe'})
+        .then((foundPlan)=>{
+          res.status(200).json(foundPlan);
+        })
+        .catch((error)=>{console.log(error)});
+})
 
   module.exports = router;
