@@ -74,7 +74,8 @@ router.post('/planner2/add-to-plan', (req, res, next) => {
         plan
           .save()
           .then(() => {
-            res.redirect('/planner2');
+            // res.redirect('/planner2');
+            res.redirect('/recipes');
           })
           .catch((err) => {
             next(err);

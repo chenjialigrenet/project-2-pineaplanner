@@ -16,6 +16,9 @@ const tagsForm = document.getElementById('filterTags');
 //modal
 const addRecipeModalRecipeId = document.getElementById('modal-recipe-id');
 const closeModalButton = document.getElementById('close-modal');
+const closeAddToPlannerModalBtn = document.getElementById(
+  'close-addToPlanner-modal'
+);
 const modal = document.getElementById('modal');
 const modalOverlay = document.getElementById('modal-overlay');
 const showAddToPlannerModal = document.getElementById('modal-addToPlanner');
@@ -28,6 +31,13 @@ const btnAddToPlanner = document.getElementById('btn-add');
 closeModalButton.onclick = () => {
   modal.classList.toggle('closed');
   modalOverlay.classList.toggle('closed');
+};
+
+/////////////add to planner modal
+closeAddToPlannerModalBtn.onclick = () => {
+  modal.classList.add('closed');
+  modalOverlay.classList.add('closed');
+  showAddToPlannerModal.classList.add('closed');
 };
 
 btnAddToPlannerModal.addEventListener('click', function () {

@@ -109,10 +109,20 @@
 <div id="modal-overlay-addToPlanner" class="closed"></div>
     <div  id="modal-addToPlanner" class="closed">
         <div id="modalAddToPlannerWrapper">
-
+            
+            <button id="close-addToPlanner-modal">X</button>
+            
             <form method='POST' action='/planner2/add-to-plan' class="flex-wrapper">
+
                 {{!-- <label for="recipe">Planned meals:</label> --}}
                 <input type="hidden" name="recipeId" id="modal-recipe-id">
+
+                <label for="plan">Choose one of your created plan:</label> 
+                <select name="planId" id="plan">
+                    {{#each plans}}
+                    <option value="{{id}}">{{title}}</option>
+                    {{/each}}
+                </select> 
 
                 <label for="dayOfWeek">Choose a day:</label>
                 <select name="dayOfWeek" id="dayOfWeek">
@@ -131,16 +141,9 @@
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>
                 </select>   
-
-                <label for="plan">In the planner:</label> 
-                <select name="planId" id="plan">
-                    {{#each plans}}
-                    <option value="{{id}}">{{title}}</option>
-                    {{/each}}
-                </select> 
                 
                 <button class="btn-add" id="btn-add">Add to planner</button>
-                {{!-- <button id="close-modal">X</button> --}}
+                
             </form>
         </div>
     </div>
