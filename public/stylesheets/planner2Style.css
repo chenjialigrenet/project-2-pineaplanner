@@ -1,0 +1,69 @@
+:root {
+    --dark-blue: #156064;
+    --mint-green: #00c49a;
+    --pale-yellow: #f8e16c;
+    --pink: #ffc2b4;
+    --salmon: #fb8f67;
+    --cell-background: #fb8f67;
+    --day-letterColor: #ffffff;
+    --day-letterSize: 1.7rem;
+    --login-border: #156064;
+    --login-background: #156064;
+    --button-add-diameter:80px;
+  }
+
+  #planContainer{
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+  }
+
+  #planTitle{
+    font-style: italic;
+  }
+
+  #titleLine{
+      margin-left: 5%;
+  }
+
+  #planGridWrapper{
+    margin: 1rem 0;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: 180px;
+    gap: 2px;
+    align-self: center;
+}
+
+.testDiv{
+    width: 100%;
+    height: 100%;
+    background-color: var(--cell-background);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.day{
+    font-size: var(--day-letterSize);
+    color: var(--day-letterColor);
+}
+
+.addButton{
+    height: var(--button-add-diameter);
+    width: var(--button-add-diameter);
+    border-radius: 50%;
+    border: none;
+    font-size: 60px;
+    color:white;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.addButton:hover{
+    transform: scale(1.05);
+    background-color: rgba(128, 128, 128, 0.671);
+}
