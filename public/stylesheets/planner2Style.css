@@ -21,6 +21,7 @@
 
   #planTitle{
     font-style: italic;
+    color: var(--dark-blue);
   }
 
   #planGridWrapper{
@@ -37,6 +38,11 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
+}
+
+#icon{
+    height: 1rem;
+    justify-self: flex-start;
 }
 
 .cell{
