@@ -14,6 +14,7 @@ const dishTypeBoxes = document.querySelectorAll('.checkboxDishType');
 const tagsForm = document.getElementById('filterTags');
 
 //modal
+const addRecipeModalRecipeId = document.getElementById('modal-recipe-id');
 const closeModalButton = document.getElementById('close-modal');
 const modal = document.getElementById('modal');
 const modalOverlay = document.getElementById('modal-overlay');
@@ -22,6 +23,8 @@ const showAddToPlannerModalOverlay = document.getElementById(
   'modal-overlay-addToPlanner'
 );
 const btnAddToPlannerModal = document.getElementById('btn-add-modal');
+const btnAddToPlanner = document.getElementById('btn-add');
+
 closeModalButton.onclick = () => {
   modal.classList.toggle('closed');
   modalOverlay.classList.toggle('closed');
@@ -33,6 +36,12 @@ btnAddToPlannerModal.addEventListener('click', function () {
   showAddToPlannerModal.classList.toggle('closed');
   //showAddToPlannerModalOverlay.classList.toggle('closed');
 });
+
+/////////////
+// btnAddToPlanner.addEventListener('click')
+
+// function
+//////////////
 
 const modalImage = document.getElementById('modalImage');
 const modalTagsWrapper = document.getElementById('modalTagsWrapper');
@@ -66,6 +75,8 @@ function showModal(id) {
       let recipe = dbRes.data;
       cleanModal();
       fillModal(recipe);
+      //chenji added this addRecipeModelRecipeId
+      addRecipeModalRecipeId.value = id;
       modal.classList.toggle('closed');
       modalOverlay.classList.toggle('closed');
     })
