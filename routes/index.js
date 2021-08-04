@@ -7,18 +7,18 @@ require('dotenv').config();
 const itemPerPageVar = process.env.RECIPE_PER_PAGE;
 
 // GET home page //
-router.get('/', (req, res, next) => {
-  res.render('home.hbs', {
-    style: ['home.css'],
-  });
+router.get('/', async (req, res, next) => {
+  Recipe.find().then((result) => {
+    console.log(result)
+    res.render('home.hbs', {
+      style: ['home.css'],
+      recipes: result,
+    });
+  }).catch((err) => {
+    console.log(err)
+  })
+  
 });
-
-//GET myplans page// TO BE REMOVED>>>>>
-// router.get('/myplans', (req, res, next) => {
-//   res.render('myplans.hbs', {
-//     style: ['myPlansStyle.css'],
-//   });
-// });
 
 //GET Recipes List page//
 router.get('/recipes', async (req, res, next) => {
@@ -51,36 +51,6 @@ router.get('/recipes', async (req, res, next) => {
   }
 });
 
-//GET Planner page//
-// router.get('/planner',  (req, res, next) => {
-//    Recipe.find().then((dbRes) => {
-//     res.render('planner.hbs', {
-//       style: ['mealPlannerStyle.css'],
-//       recipes: dbRes
-//       // plan: newPlan,
-//     });
-//   })
-// });
 
-// router.post('/create-planner', async (req, res, next) => {
-//   data = req.body.recipes
-//   return Plan.create({recipes: data})
-//   .then((newPlan) => {
-//     newPlan.recipes.forEach(element => {
-//       return Recipe.find({title: element})
-//       .then((finalPlan) => {
-//         console.log(finalPlan)
-
-//       })
-//       .catch((err) => {
-//         console.log(err)
-//       })
-//     });
-//   }).catch((err) => {
-//     console.log(err)
-//     res.redirect('/create-planner')
-//   })
-
-// })
 
 module.exports = router;
