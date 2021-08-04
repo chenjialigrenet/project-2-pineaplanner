@@ -29,4 +29,20 @@ router.get("/planner2/:planId",(req,res,next)=>{
         .catch((error)=>{console.log(error)});
 })
 
+router.patch("/plan/update",(req,res,next)=>{
+  let data=req.body.data;
+   Plan.findByIdAndUpdate(data.planID,data.plan)
+       .then(()=>{
+       res.status(200);})
+       .catch((error)=>{console.log(error)});
+})
+
+router.post("/plan/create",(req,res,next)=>{
+
+  let data=req.body.data;
+   Plan.create(data.plan)
+       .then(()=>{res.status(200);})
+       .catch((error)=>{console.log(error)});
+})
+
   module.exports = router;
