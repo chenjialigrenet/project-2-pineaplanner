@@ -52,6 +52,7 @@ router.post('/plan/create', (req, res, next) => {
     });
 });
 
+// add one recipe to planner
 router.post('/planner2/add-to-plan', (req, res, next) => {
   Plan.findById(req.body.planId)
     .then((plan) => {

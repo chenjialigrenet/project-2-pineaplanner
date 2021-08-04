@@ -38,10 +38,6 @@ btnAddToPlannerModal.addEventListener('click', function () {
 });
 
 /////////////
-// btnAddToPlanner.addEventListener('click')
-
-// function
-//////////////
 
 const modalImage = document.getElementById('modalImage');
 const modalTagsWrapper = document.getElementById('modalTagsWrapper');

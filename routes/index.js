@@ -34,6 +34,7 @@ router.get('/recipes', async (req, res, next) => {
 
     Plan.find({ owner: req.session.currentUserId }).then((plans) => {
       res.render('recipes.hbs', {
+        //added plans => add one recipe to planner
         plans,
         recipes: firsPageRecipes,
         dishTypes: dishTypes,
