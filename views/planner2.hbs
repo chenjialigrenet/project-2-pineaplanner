@@ -1,8 +1,13 @@
 
+
 <div id="planContainer">
 
 <div id="planHeader">
-<h3 id="titleLine">Name of the plan: <span id="planTitle" contenteditable="true">My plan name</span></h3>
+<h3 id="titleLine">Name of the plan: 
+    <span id="planTitle" contenteditable="true">My plan name</span>
+    <img id="icon" src="/images/edit-regular.svg" alt="edit">
+    </h3>
+    
 <div>
     <button id="buttonSave">Save</button>
     <button id="buttonCreate">Create new plan</button>
@@ -19,41 +24,71 @@
 
 <div id="planGridWrapper">
     {{!-- Days --}}
-    <div class="testDiv day">Meal</div>
-    <div class="testDiv day">Monday</div>
-    <div class="testDiv day">Tuesday</div>
-    <div class="testDiv day">Wednesday</div>
-    <div class="testDiv day">Thursday</div>
-    <div class="testDiv day">Friday</div>
-    <div class="testDiv day">Saturday</div>
-    <div class="testDiv day">Sunday</div>
+    <div class="cell day">Meal</div>
+    <div class="cell day">Monday</div>
+    <div class="cell day">Tuesday</div>
+    <div class="cell day">Wednesday</div>
+    <div class="cell day">Thursday</div>
+    <div class="cell day">Friday</div>
+    <div class="cell day">Saturday</div>
+    <div class="cell day">Sunday</div>
     {{!-- breakfasts --}}
-    <div class="testDiv day">Breakfast</div>
-    <div class="testDiv breakfast monday" ><button class="addButton">+</button></div>
-    <div class="testDiv breakfast tuesday"><button class="addButton">+</button></div>
-    <div class="testDiv breakfast wednesday"><button class="addButton">+</button></div>
-    <div class="testDiv breakfast thursday"><button class="addButton">+</button></div>
-    <div class="testDiv breakfast friday"><button class="addButton">+</button></div>
-    <div class="testDiv breakfast saturday"><button class="addButton">+</button></div>
-    <div class="testDiv breakfast sunday"><button class="addButton">+</button></div>
+    <div class="cell day">Breakfast</div>
+    <div class="cell breakfast monday" ><button class="addButton">+</button></div>
+    <div class="cell breakfast tuesday"><button class="addButton">+</button></div>
+    <div class="cell breakfast wednesday"><button class="addButton">+</button></div>
+    <div class="cell breakfast thursday"><button class="addButton">+</button></div>
+    <div class="cell breakfast friday"><button class="addButton">+</button></div>
+    <div class="cell breakfast saturday"><button class="addButton">+</button></div>
+    <div class="cell breakfast sunday"><button class="addButton">+</button></div>
     {{!-- lunches --}}
-    <div class="testDiv day">Lunch</div>
-    <div class="testDiv lunch monday" ><button class="addButton">+</button></div>
-    <div class="testDiv lunch tuesday"><button class="addButton">+</button></div>
-    <div class="testDiv lunch wednesday"><button class="addButton">+</button></div>
-    <div class="testDiv lunch thursday"><button class="addButton">+</button></div>
-    <div class="testDiv lunch friday"><button class="addButton">+</button></div>
-    <div class="testDiv lunch saturday"><button class="addButton">+</button></div>
-    <div class="testDiv lunch sunday"><button class="addButton">+</button></div>
+    <div class="cell day">Lunch</div>
+    <div class="cell lunch monday" ><button class="addButton">+</button></div>
+    <div class="cell lunch tuesday"><button class="addButton">+</button></div>
+    <div class="cell lunch wednesday"><button class="addButton">+</button></div>
+    <div class="cell lunch thursday"><button class="addButton">+</button></div>
+    <div class="cell lunch friday"><button class="addButton">+</button></div>
+    <div class="cell lunch saturday"><button class="addButton">+</button></div>
+    <div class="cell lunch sunday"><button class="addButton">+</button></div>
         {{!-- dinners --}}
-    <div class="testDiv day">Dinner</div>
-    <div class="testDiv dinner monday" ><button class="addButton">+</button></div>
-    <div class="testDiv dinner tuesday"><button class="addButton">+</button></div>
-    <div class="testDiv dinner wednesday"><button class="addButton">+</button></div>
-    <div class="testDiv dinner thursday"><button class="addButton">+</button></div>
-    <div class="testDiv dinner friday"><button class="addButton">+</button></div>
-    <div class="testDiv dinner saturday"><button class="addButton">+</button></div>
-    <div class="testDiv dinner sunday"><button class="addButton">+</button></div>   
+    <div class="cell day">Dinner</div>
+    <div class="cell dinner monday" ><button class="addButton">+</button></div>
+    <div class="cell dinner tuesday"><button class="addButton">+</button></div>
+    <div class="cell dinner wednesday"><button class="addButton">+</button></div>
+    <div class="cell dinner thursday"><button class="addButton">+</button></div>
+    <div class="cell dinner friday"><button class="addButton">+</button></div>
+    <div class="cell dinner saturday"><button class="addButton">+</button></div>
+    <div class="cell dinner sunday"><button class="addButton">+</button></div>   
 </div>
 
+</div>
+
+<div id="modal-overlay-planner" class="closed" >
+</div>
+
+<div id="modal-planner" class="closed">
+    <div id="modalWrapper">
+        <button id="closeModalButton">X</button>
+        <h3>Choose a recipe</h3>
+        <div id="searchDiv">
+        <label for="searchRecipe">Search:</label>
+        <input id="searchInputModal" type="text" placeholder="Search...">
+        <div id="modalPageContainer">
+                <button id="prevPageButton"> ← </button>
+                <span id="currentPage">1</span>
+                <span> / </span>
+                <span id="allPage"></span>
+                <button id="nextPageButton"> → </button>
+        </div>
+        </div>
+
+        <div id="listBoxContainer">
+            <ul id="recipeList">
+                
+            </ul>
+
+        </div>
+        <button id="addRecipeButton">Add recipe</button>
+        </div>
+    </div>
 </div>
