@@ -122,7 +122,7 @@ button#nextPageButton:hover {
 }
 
 .recipe-cards {
-  background-color: var(--pink);
+  background-color: var(--salmon);
 
   /* border: 0px solid transparent; */
   border-radius: 5px;
