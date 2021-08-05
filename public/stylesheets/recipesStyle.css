@@ -31,6 +31,7 @@ h2 {
   display: flex;
   width: 100%;
   margin-top: 1rem;
+  margin-left: 100px;
 }
 
 #s-wrapper {
@@ -126,12 +127,12 @@ h2 {
   margin-top: 5%;
 }
 
-#recipes-tags-wrapper ul {
+ul {
   list-style-type: none;
   padding: 0;
 }
 
-#recipes-tags-wrapper li {
+li {
   list-style: none;
 }
 
@@ -267,7 +268,7 @@ h2 {
 
 
 .drop-on-hover {
-  background-color: #04AA6D;
+  background-color: var(--dark-blue) ;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -305,7 +306,7 @@ h2 {
 .dropdown:hover .dropdown-content {display: block;}
 
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .drop-on-hover {background-color: salmon;}
 
 #recipes-tags-wrapper {
   margin: 125px 55px;
@@ -396,3 +397,21 @@ h2 {
   color:var(--salmon);
 }
 
+.recipes-nav {
+  display: flex;
+  
+  justify-content: space-between;
+  width: 91%;
+}
+
+
+
+.filters-div {
+  
+  margin-bottom: 20px;
+}
+
+.search-div {
+  margin-top: 20px;
+
+}
