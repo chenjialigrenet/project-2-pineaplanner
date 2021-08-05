@@ -91,7 +91,7 @@ function  loadOnePlan(planId){
     myAxios.get(`/planner2/${planId}`)
         .then((plan)=>{
             let recipes = plan.data.recipes;
-            
+            createAddButtons();
             recipes.forEach(recipe => {
                 let day = recipe.dayOfWeek.toLowerCase();
                 let meal = recipe.mealName.toLowerCase();
@@ -117,6 +117,14 @@ function loadSelectedPlan(){
     planTitle.innerText=selectPlan.selectedOptions[0].innerText;
     buttonSave.disabled=false;
     loadOnePlan(selectedPlanId);
+}
+
+function createAddButtons(){
+    let cells = document.querySelectorAll(".cell.meal");
+    cells.forEach((cell)=>{
+    cell.innerHTML=`<button class="addButton">+</button>`
+    });
+    refresPlusButtons();
 }
 
 function refreshDeleteButtons(){
