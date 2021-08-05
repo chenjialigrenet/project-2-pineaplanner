@@ -94,7 +94,7 @@ h2 {
   gap: 2.5rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 210px;
-  margin-left: 2.5rem;
+  /* margin-left: 2.5rem; */
 }
 
 button#prevPageButton,
@@ -297,6 +297,36 @@ li {
   margin: 5px 15px;
   height: 1.5rem;
   width: 1.5rem;
+}
+
+.modal-front-btns-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+button#btn-add-modal {
+  text-align: center;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--dark-blue);
+}
+button#btn-add-modal:hover {
+  background-color: var(--salmon);
+}
+
+button#close-modal {
+  text-align: center;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--dark-blue);
+}
+
+button#close-modal:hover {
+  background-color: var(--salmon);
 }
 
 .drop-on-hover {
