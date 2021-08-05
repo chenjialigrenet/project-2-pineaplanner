@@ -9,7 +9,7 @@ const selectPlan = document.getElementById("selectPlan")
 
 //Title of the Plan
 const planTitle = document.getElementById("planTitle")
-
+const icon = document.getElementById("icon");
 //Modal controls
 const closeModalButton = document.getElementById("closeModalButton");
 const addRecipeButton = document.getElementById("addRecipeButton");
@@ -29,6 +29,7 @@ const allPageDisplay=document.getElementById("allPage");
 selectPlan.addEventListener('change', (event) => {
     let selectedPlanId = selectPlan.selectedOptions[0].id;
     planTitle.innerText=selectPlan.selectedOptions[0].innerText;
+    buttonSave.disabled=false;
     loadOnePlan(selectedPlanId);
 });
 
@@ -38,6 +39,11 @@ buttonSave.addEventListener('click',()=>{
 
 buttonCreate.addEventListener('click',()=>{
     createPlan();
+});
+
+icon.addEventListener('click',()=>{
+    planTitle.focus();
+    planTitle.select();
 });
 
 //Modal
@@ -108,10 +114,10 @@ function refreshDeleteButtons(){
     let buttons = document.querySelectorAll(".deleteMini");
     buttons.forEach((button)=>{
         button.addEventListener("click",()=>{
-            console.log("i am here");
+            
             let cell = button.closest(".cell");
             cell.innerHTML=`<button class="addButton">+</button>`;
-
+            refresPlusButtons();
         })
     })
 }
@@ -190,7 +196,7 @@ function refreshRecipeList(filteredList){
     listedVisible.forEach((element)=>{
         element.addEventListener("click",(e)=>{
             let classList = Array.from(e.target.classList);
-            console.log(`classList`, classList);
+            
             if(classList.includes('selected')){
                 e.target.classList.toggle("selected");
                 numberOfSelected=0;
@@ -220,6 +226,10 @@ function goNextPage() {
     if (currentPage < allPage) {
       currentPage++;
       currentPageDisplay.innerText = currentPage;
+      let selectedList = document.querySelector(".selected");
+      console.log(`selectedList`, selectedList);
+      if (selectedList!==null) {selectedList.classList.toggle("selected");
+                                numberOfSelected=0;};
     }
     updatePageValues();
   }
@@ -228,6 +238,10 @@ function goPreviousPage() {
     if (currentPage > 0) {
       currentPage--;
       currentPageDisplay.innerText = currentPage;
+      let selectedList = document.querySelector(".selected");
+      if (selectedList!==null) {
+          selectedList.classList.toggle("selected");
+          numberOfSelected=0;};
     }
     updatePageValues();
   }
@@ -253,6 +267,7 @@ function fillCell(recipeOfMeal){
                     </div>`;
     numberOfSelected=0;
     cell.classList.toggle("focused");
+    refreshDeleteButtons()
 };
 
 //On load of page
