@@ -103,9 +103,7 @@ button#nextPageButton {
   background-color: var(--dark-blue);
   border: none;
   border-radius: 5px;
-  padding: 0.3rem 0.3rem;
   color: white;
-  margin: 0 0.3rem;
 }
 
 button#prevPageButton:hover,
@@ -317,17 +315,9 @@ button#btn-add-modal:hover {
   background-color: var(--salmon);
 }
 
-button#close-modal {
-  text-align: center;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: var(--dark-blue);
-}
-
-button#close-modal:hover {
-  background-color: var(--salmon);
+button#close-addToPlanner-modal {
+  margin: 0.5rem 0 0 1rem;
+  padding: 0.2rem 0.4rem;
 }
 
 .drop-on-hover {
@@ -372,11 +362,12 @@ button#close-modal:hover {
 .dropdown:hover .drop-on-hover {
   background-color: salmon;
 }
-
+/* 
 #recipes-tags-wrapper {
-  /* margin: 125px 55px;
-  padding-left: 30px; */
+  margin: 125px 55px;
+  padding-left: 30px; 
 }
+*/
 /* add to planner modal */
 #btn-add-modal {
   background-color: red;
@@ -387,8 +378,8 @@ button#close-modal:hover {
 }
 
 #modal-addToPlanner {
-  max-height: 80%;
-  width: 1000px;
+  /* max-height: 80%; */
+  width: 25rem;
   max-width: 90%;
   position: fixed;
   z-index: 100;
@@ -444,15 +435,28 @@ button#close-modal:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 50vh;
 }
 
 #dayOfWeek,
 #mealName,
 #plan,
-.btn-add,
-.btn-edit {
-  margin-bottom: 1rem;
+.btn-add {
+  margin-bottom: 0.5rem;
+}
+
+button#btn-add {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  color: white;
+  font-weight: bold;
+  background-color: var(--dark-blue);
+  border: none;
+  border-radius: 5px;
+}
+
+button#btn-add:hover {
+  background-color: var(--salmon);
 }
 
 #navRecipes {
