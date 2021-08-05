@@ -164,8 +164,8 @@
 
 #modal-planner {
     max-height: 80%;
-    width: 600px;
-    height: 600px;;
+    width: 540px;
+    height: 500px;
     max-width: 90%;
     position: fixed;
     z-index: 100;
@@ -173,12 +173,12 @@
     top: 50%;
     background-color: white;
     border-radius: 10px;
-  box-shadow: 3px 0px 3px var(--dark-blue),0px 3px 3px var(--dark-blue),-3px 0px 3px var(--dark-blue),3px -3px 3px var(--dark-blue);
+    box-shadow: 3px 0px 3px var(--dark-blue),0px 3px 3px var(--dark-blue),-3px 0px 3px var(--dark-blue),3px -3px 3px var(--dark-blue);
     border-radius: 15px;
     transform: translate(-50%, -50%);
     animation: fadeIn 0.4s;
     max-height: calc(100% - 20px);
-    overflow-y: auto;
+    
 }
 #modal-overlay-planner {
     position: fixed;
@@ -196,6 +196,9 @@
     flex-direction: column;
     align-items: center;
     padding:10px;
+    
+    height: 100%;
+    justify-content: space-evenly;
 
 }
 
@@ -213,11 +216,20 @@
     background-color: var(--salmon);
 }
 
+#addRecipeButton{
+    margin-top: 20px;
+}
+
 #closeModalButton{
     align-self: flex-end;
     position: relative;
     right:5px;
     transform: scale(1.1);
+}
+
+#modalWrapper h3{
+    color: var(--dark-blue);
+    font-size: 2rem;
 }
 
 #modalWrapper h3{
@@ -249,7 +261,7 @@ li{
 .tooltip{
     position: absolute;
     top:0px;
-    right:15px;
+    right:0px;
     bottom: 0px;
     z-index: 1;
     visibility: hidden;
@@ -276,17 +288,21 @@ li:hover .tooltip{
 }
 
 #searchDiv{
-    margin: 20px;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100px;
 }
 
 
 #recipeList{
-    
+    border:1px solid var(--dark-blue);
 }
 
 #listBoxContainer{
-    border:1px solid var(--dark-blue);
-    width: 95%;
+    
+    width: 100%;
     height:auto;
     align-self: flex-end;
 }
@@ -294,6 +310,12 @@ li:hover .tooltip{
 #modalPageContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+#modalPageContainer button{
+    margin: 0 5px;
 }
 
 .selected{
