@@ -63,16 +63,32 @@
 
 </div>
 
-<div id="modal-overlay-planner" >
+<div id="modal-overlay-planner" class="closed" >
 </div>
 
-<div id="modal-planner"  >
+<div id="modal-planner" class="closed">
     <div id="modalWrapper">
+        <button id="closeModalButton">X</button>
         <h3>Choose a recipe</h3>
+        <div id="searchDiv">
         <label for="searchRecipe">Search:</label>
-        <input type="text" placeholder="Search...">
-        
+        <input id="searchInputModal" type="text" placeholder="Search...">
+        <div id="modalPageContainer">
+                <button id="prevPageButton"> ← </button>
+                <span id="currentPage">1</span>
+                <span> / </span>
+                <span id="allPage"></span>
+                <button id="nextPageButton"> → </button>
+        </div>
+        </div>
 
+        <div id="listBoxContainer">
+            <ul id="recipeList">
+                
+            </ul>
+
+        </div>
+        <button id="addRecipeButton">Add recipe</button>
         </div>
     </div>
 </div>

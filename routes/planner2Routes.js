@@ -19,6 +19,32 @@ router.get('/planner2', (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
+
+router.get('/planner2/getrecipes', (req, res, next) => {
+
+  let searchTitle = req.params.search;
+  let titleReg = new RegExp(`[A-Za-z]`);
+
+  if (searchTitle !== '[A-Za-z]') {
+    titleReg = new RegExp(searchTitle, 'gi');
+  }
+  let queryTitle = { title: titleReg };
+
+  Recipe
+    .find(queryTitle)
+    .sort({ title: 1 })
+    .then((foundRecipes)=>{
+      let recipes=[];
+      foundRecipes.forEach((foundRecipe)=>{
+        let recipe = {title :foundRecipe.title, id:foundRecipe._id, image:foundRecipe.image};
+        recipes.push(recipe);
+      })
+      res.status(200).json(recipes);
+    })
+    .catch((error)=>{res.status(500).json(err);});
+
+});
+
 router.get('/planner2/:planId', (req, res, next) => {
   Plan.findById(req.params.planId)
     .populate({ path: 'recipes.recipe' })
@@ -43,7 +69,12 @@ router.patch('/plan/update', (req, res, next) => {
 
 router.post('/plan/create', (req, res, next) => {
   let data = req.body.data;
-  Plan.create(data.plan)
+  let plan = data.plan;
+  let session=req.session;
+  plan.owner=session.currentUserId;
+
+  
+  Plan.create(plan)
     .then(() => {
       res.status(200);
     })
@@ -85,5 +116,7 @@ router.post('/planner2/add-to-plan', (req, res, next) => {
       next(err);
     });
 });
+
+
 
 module.exports = router;
