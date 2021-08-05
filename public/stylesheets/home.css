@@ -13,6 +13,7 @@
 } */
 
 .flex-wrapper {
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,12 +40,21 @@
   /* background-image: url('/images/matthias-cooper-r3tjnNRMadY-unsplash.jpg'); */
 
   /* background-image: url('/images/andrew-molyneaux-X00aKdald68-unsplash.jpg'); */
-
+  /* background-image: url('https://www.allmychefs.com/images/1412/1200-auto/ananas_000.jpg?poix=50&poiy=50');
+  background-size: contain;
   background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat; */
+  /* background-size: cover; */
   height: 100%;
   width: 100%;
+}
+
+#background{
+  position: absolute;
+  z-index: -25;
+  transform: rotateZ(-30deg);
+  top:-80px;
+
 }
 
 .modal {
