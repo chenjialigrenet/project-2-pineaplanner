@@ -20,8 +20,8 @@
   <body>
     
     <nav class='topnav' id='myTopnav'>
-      <a href='/' class='active'>PineaPlanner</a>
-      <a href='/recipes'>Recipes</a>
+      <a href='/' id="navTitle">PineaPlanner</a>
+      <a href='/recipes' id="navRecipes">Recipes</a>
       {{#unless isLoggedIn}}
         
           <a class='right open-modal-login'>Login</button>
@@ -30,10 +30,10 @@
         
       {{/unless}}
       {{#if isLoggedIn}}
-        <a href='/planner2'>Meal planner</a>
+        <a href='/planner2' id="navPlanner">Meal planner</a>
         {{!-- <a href='/myplans'>My Plans</a> --}}
 
-        <a href='/users/profile' class='right'>Profile</a>
+        <a href='/users/profile' id="navProfile" class='right'>Profile</a>
         <a href='/logout' class='right'>Logout</a>
 
       {{/if}}

@@ -327,3 +327,10 @@ h2 {
 .btn-edit {
   margin-bottom: 1rem;
 }
+
+#navRecipes{
+  font-size: var(--active-fontsize);
+  font-weight: bolder;
+  color:var(--salmon);
+}
+

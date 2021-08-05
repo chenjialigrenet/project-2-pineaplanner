@@ -169,7 +169,7 @@
 }
 li{
     position: relative;
-    transition: all 0.2s ease-in-out;
+    
 }
 
 .tooltip{
@@ -227,3 +227,9 @@ li:hover .tooltip{
     color:white;
     font-weight: bolder;
 }
+
+#navPlanner{
+    font-size: var(--active-fontsize);
+    font-weight: bolder;
+    color:var(--salmon);
+  }

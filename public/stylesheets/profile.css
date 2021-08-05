@@ -39,3 +39,9 @@ input {
   padding: 0.5em 1.5em 0.5em 1em;
   font-size: 1em;
 }
+
+#navProfile{
+  font-size: var(--active-fontsize);
+  font-weight: bolder;
+  color:var(--salmon);
+}
