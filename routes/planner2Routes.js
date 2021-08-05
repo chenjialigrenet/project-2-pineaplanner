@@ -19,6 +19,13 @@ router.get('/planner2', (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
+router.get('/planner2/refresh', (req, res, next) => {
+  Plan.find({ owner: req.session.currentUserId })
+    .then((plans) => { res.status(200).json(plans);})
+    .catch((error) => console.log(error));
+
+});
+
 
 router.get('/planner2/getrecipes', (req, res, next) => {
 
@@ -61,11 +68,26 @@ router.patch('/plan/update', (req, res, next) => {
   Plan.findByIdAndUpdate(data.planID, data.plan)
     .then(() => {
       res.status(200);
+      res.send("Success");
     })
     .catch((error) => {
       console.log(error);
     });
 });
+
+router.patch('/plan/delete', (req, res, next) => {
+  let data = req.body.data;
+  Plan.findByIdAndDelete(data.planID)
+    .then(() => {
+      res.status(200);
+      res.send("Success");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+
 
 router.post('/plan/create', (req, res, next) => {
   let data = req.body.data;
@@ -77,6 +99,7 @@ router.post('/plan/create', (req, res, next) => {
   Plan.create(plan)
     .then(() => {
       res.status(200);
+      res.send("Success");
     })
     .catch((error) => {
       console.log(error);

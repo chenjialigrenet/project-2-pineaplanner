@@ -5,7 +5,9 @@ const myAxios = axios.create({ withCredentials: true });
 //Control on top right corner
 const buttonSave = document.getElementById("buttonSave")
 const buttonCreate = document.getElementById("buttonCreate")
+const buttonDelete = document.getElementById("buttonDelete")
 const selectPlan = document.getElementById("selectPlan")
+const meesage = document.getElementById("message");
 
 //Title of the Plan
 const planTitle = document.getElementById("planTitle")
@@ -27,10 +29,7 @@ const allPageDisplay=document.getElementById("allPage");
 
 //Plan control
 selectPlan.addEventListener('change', (event) => {
-    let selectedPlanId = selectPlan.selectedOptions[0].id;
-    planTitle.innerText=selectPlan.selectedOptions[0].innerText;
-    buttonSave.disabled=false;
-    loadOnePlan(selectedPlanId);
+    loadSelectedPlan();
 });
 
 buttonSave.addEventListener('click',()=>{
@@ -41,9 +40,12 @@ buttonCreate.addEventListener('click',()=>{
     createPlan();
 });
 
+buttonDelete.addEventListener('click',()=>{
+    deletePlan();
+});
+
 icon.addEventListener('click',()=>{
     planTitle.focus();
-    planTitle.select();
 });
 
 //Modal
@@ -110,6 +112,13 @@ function  loadOnePlan(planId){
 
 }
 
+function loadSelectedPlan(){
+    let selectedPlanId = selectPlan.selectedOptions[0].id;
+    planTitle.innerText=selectPlan.selectedOptions[0].innerText;
+    buttonSave.disabled=false;
+    loadOnePlan(selectedPlanId);
+}
+
 function refreshDeleteButtons(){
     let buttons = document.querySelectorAll(".deleteMini");
     buttons.forEach((button)=>{
@@ -127,18 +136,76 @@ function savePlan(){
     let selectedPlanId = selectPlan.selectedOptions[0].id;
     
     myAxios.patch("/plan/update", {data:{planID: selectedPlanId, plan:planToSend}})
-        .then()
-        .catch((error)=>console.log(error));
+        .then((resp)=>{
+            refreshPlanList();
+            message.innerText="Plan succesfully saved...";
+            message.style.color="green"
+            message.style.visibility="visible";
+            message.style.animation="fadeInOut 1.5s";
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },1550);
+
+        })
+        .catch((error)=>{console.log(error);
+            message.innerText="ERROR: Plan not saved...";
+            message.style.color="red"
+            message.style.visibility="visible";
+            message.style.animation="fadeInOut 1.5s";
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },1550);});
 }
 
 function createPlan(){
     let planToCreate=createPlanContent();
     myAxios.post("/plan/create", {data:{plan:planToCreate}})
-        .then()
-        .catch((error)=>console.log(error));
+        .then((resp)=>{
+            refreshPlanList()
+            message.innerText="Plan succesfully created...";
+            message.style.color="green"
+            message.style.visibility="visible";
+            message.style.animation="fadeInOut 2s";
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },2100)
+        })
+        .catch((error)=>{console.log(error);
+            message.innerText="ERROR: Plan could not be...";
+            message.style.color="red"
+            message.style.visibility="visible";
+            message.style.animation="fadeInOut 2s";
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },2100)});
 
 }
 
+function deletePlan(){
+
+    let selectedPlanId = selectPlan.selectedOptions[0].id;
+    myAxios.patch("/plan/delete", {data:{planID: selectedPlanId}})
+        .then((resp)=>{
+            message.innerText="Plan succesfully DELETED...";
+            message.style.color="green"
+            message.style.visibility="visible";
+            message.style.animation="fadeInOut 1.5s";
+            refreshPlanList()
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },1550);
+
+        })
+        .catch((error)=>{console.log(error);
+            message.innerText="ERROR: Plan cannot be deleted...";
+            message.style.color="red"
+            message.style.visibility="visible";
+            message.style.animation="fadeInOut 1.5s";
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },1550);});
+
+}
 
 function createPlanContent(){
     let meals = document.querySelectorAll(".cell:not(.day)");
@@ -269,6 +336,21 @@ function fillCell(recipeOfMeal){
     cell.classList.toggle("focused");
     refreshDeleteButtons()
 };
+
+function refreshPlanList(){
+    myAxios.get("/planner2/refresh")
+        .then((dbRes)=>{
+            console.log(`dbRes`, dbRes);
+            let plans=dbRes.data;
+            selectPlan.innerHTML="";
+            plans.forEach((plan)=>{
+                selectPlan.innerHTML+=`<option id="${plan._id}">${plan.title}</option>`;
+            })
+
+            loadSelectedPlan();
+        })
+        .catch((error)=>console.log(error))
+}
 
 //On load of page
 refresPlusButtons();
