@@ -79,9 +79,11 @@ router.patch('/plan/update', (req, res, next) => {
 
 router.patch('/plan/delete', (req, res, next) => {
   let data = req.body.data;
+  console.log(`data`, data);
   Plan.findByIdAndDelete(data.planID)
     .then(() => {
       res.status(200);
+      res.send(`Succes`);
     })
     .catch((error) => {
       console.log(error);
