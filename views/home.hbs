@@ -7,18 +7,31 @@
         <h1>PineaPlanner</h1>
       </div>
       <div class='pitch'>
-        <h2>Optimize time and life, Minimize wastes and hustle</h2>
-        <p>Eating smart, reducing food waste, no more panicing on what to eat</p>
-      </div>
-      <div class='button'>
-        {{#if isLoggedIn}}
-          <a href='/planner2' class='btn-start'>Get Started</a>
-        {{else}}
-          <a href='/signup' class='btn-start'>Get Started</a>
-        {{/if}}
-      </div>
-      
-      {{!-- <div class="slideshow-container">
+        <div class="pitch-flex-wrapper">
+          
+          {{!-- <div class="pitch-container">
+            <div>Optimize time</div> 
+            <div>Choose recipes easily</div>
+          </div>
+          
+          <div class="pitch-container">
+            <div>Minimize wastes and hustle</div>
+            <div>Plan meals</div> 
+          </div> --}}
+          
+        </div>
+      <h2>Choose recipes easily & Plan meals</h2>
+      <p>Eat smart | Reduce wastes | No more panic</p>
+    </div>
+    <div class='button'>
+      {{#if isLoggedIn}}
+        <a href='/planner2' class='btn-start'>Get Started</a>
+      {{else}}
+        <a href='/signup' class='btn-start'>Get Started</a>
+      {{/if}}
+    </div>
+
+    {{! <div class="slideshow-container">
           <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
               <img src="https://spoonacular.com/recipeImages/646868-556x370.jpg" style="width:100%">
@@ -42,7 +55,7 @@
         <span class="dot"></span> 
         <span class="dot"></span> 
       </div>
-    </div> --}}
+    </div> }}
 
   </div>
 
