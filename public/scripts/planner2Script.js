@@ -204,8 +204,10 @@ function createPlan(){
 function deletePlan(){
 
     let selectedPlanId = selectPlan.selectedOptions[0].id;
+    console.log(`selectedPlanId`, selectedPlanId)
     myAxios.patch("/plan/delete", {data:{planID: selectedPlanId}})
         .then((resp)=>{
+            console.log(`i am here`);
             message.style.opacity="0";
             message.innerText="Plan succesfully DELETED...";
             message.style.color="green"
