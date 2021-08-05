@@ -257,8 +257,8 @@ function createPlanContent(){
         let recipeId = meal.firstElementChild.id;
         if (recipeId!==""){
             plan.recipes.push({
-                dayOfWeek: meal.classList[2],
-                mealName: meal.classList[1],
+                dayOfWeek: meal.classList[3],
+                mealName: meal.classList[2],
                 recipe:recipeId,
             });
         }
