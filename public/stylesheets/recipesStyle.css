@@ -3,6 +3,14 @@
     --dark-blue: #156064;
 } */
 
+:root {
+  --dark-blue: #156064;
+  --mint-green: #00c49a;
+  --pale-yellow: #f8e16c;
+  --pink: #ffc2b4;
+  --salmon: #fb8f67;
+}
+
 h2 {
   margin-top: 1rem;
   font-size: 1.1rem;
@@ -97,7 +105,7 @@ h2 {
 }
 
 .recipe-cards {
-  background-color: rgb(216, 215, 215);
+  background-color: var(--pink);
 
   /* border: 0px solid transparent; */
   border-radius: 5px;
