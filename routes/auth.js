@@ -6,7 +6,6 @@ const SALT = 10;
 
 // SIGN UP ROUTES
 
-
 router.post('/signup', async (req, res, next) => {
   try {
     const data = req.body;
@@ -38,7 +37,6 @@ router.post('/signup', async (req, res, next) => {
 
 //SIGN IN ROUTES
 
-
 router.post('/login', async (req, res, next) => {
   try {
     const email = req.body.email;
@@ -50,7 +48,7 @@ router.post('/login', async (req, res, next) => {
 
     req.session.currentUserId = user.id;
     console.log(req.session.currentUserId);
-    res.redirect('/users/profile');
+    res.redirect('/planner2');
   } catch (error) {
     console.log(error); //Checking what the error is (delete this line)
     res.render('login', {
