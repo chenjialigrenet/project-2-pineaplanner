@@ -4,47 +4,51 @@
 
 <div id="recipes-tags-wrapper">
 
-<h2> Recipes</h2>
-
-<form id="searchBar" >
-    <input id="searchText" type="text">
-    <button id="searchButton" type="button">Search</button>
-</form>
 
 
+
+<div class="dropdown">
 <form id="filterTags" method="GET">
-    <h2>Filter by Diet Type</h2>
-    <ul id="dishDietList">
-        <li class="tag-list-item">
-        <input name="typeVegan" value="vegan" id="input_dishVegan" type="checkbox"  />
-        <label for="typeVegan">Vegan</label>
-        </li>
+    <h2 class="drop-on-hover">Filter by Diet Type</h2>
+    <div class="dropdown-content">
+        <ul id="dishDietList">
+            <li class="tag-list-item">
+                <input name="typeVegan" value="vegan" id="input_dishVegan" type="checkbox"  />
+                <label for="typeVegan">Vegan</label>
+            </li>
 
-        <li class="tag-list-item"></li>
-        <input name="typeVegetarian" value="vegetarian" id="input_dishVegetarian" type="checkbox"/>
-        <label for="typeVegetarian">Vegetarian</label>
-        </li>
+            <li class="tag-list-item"></li>
+                <input name="typeVegetarian" value="vegetarian" id="input_dishVegetarian" type="checkbox"/>
+                <label for="typeVegetarian">Vegetarian</label>
+            </li>
 
-        <li class="tag-list-item"></li>
-        <input name="dishDairyFree" value="dairyFree" id="input_dishDairyFree" type="checkbox"  />
-        <label for="dishDairyFree">Dairy-Free</label>
-        </li>
+            <li class="tag-list-item"></li>
+                <input name="dishDairyFree" value="dairyFree" id="input_dishDairyFree" type="checkbox"  />
+                <label for="dishDairyFree">Dairy-Free</label>
+            </li>
 
-        <li class="tag-list-item"></li>
-        <input name="dishGlutenFree" value="glutenFree" id="input_dishGlutenFree" type="checkbox"  />
-        <label for="dishGlutenFree">Gluten-Free</label>
-        </li>
-    </ul>
+            <li class="tag-list-item "></li>
+            <input name="dishGlutenFree" value="glutenFree" id="input_dishGlutenFree" type="checkbox"  />
+            <label for="dishGlutenFree">Gluten-Free</label>
+            </li>
+        </ul>
+    </div>
+</div>
+    
 
 
-    <h2>Filter by Dish Type</h2>
-
-    <ul id="dishTypeList">
+    <div class="dropdown">
+<h2 class="drop-on-hover">Filter by Dish Type</h2>
+    <div class="dropdown-content">
+        <ul id="dishTypeList">
         {{#each dishTypes}}
             {{>dishTypeList this}}
         {{/each }}
 
-    </ul>
+        </ul>
+</div>
+</div>
+
 
 </form>
 
@@ -52,8 +56,13 @@
 
 <div id="recipes-recipe-right">
 
-
 <h1>Recipes</h1>
+
+<form id="searchBar" >
+    <input id="searchText" type="text">
+    <button id="searchButton" type="button">Search</button>
+</form>
+
 <div id="recipes-recipe-wrapper">
     
     {{#each recipes}}
