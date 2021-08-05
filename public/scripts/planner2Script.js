@@ -137,47 +137,67 @@ function savePlan(){
     
     myAxios.patch("/plan/update", {data:{planID: selectedPlanId, plan:planToSend}})
         .then((resp)=>{
-            refreshPlanList();
+            refreshPlanList(selectedPlanId);
+            message.style.opacity="0";
             message.innerText="Plan succesfully saved...";
             message.style.color="green"
             message.style.visibility="visible";
-            message.style.animation="fadeInOut 1.5s";
+            message.style.opacity="1";
+            setTimeout(()=>{
+            message.style.opacity="0";
+            },1000);
             setTimeout(()=>{
             message.style.visibility="hidden";
-            },1550);
+            },2000);
 
         })
         .catch((error)=>{console.log(error);
+            message.style.opacity="0";
             message.innerText="ERROR: Plan not saved...";
             message.style.color="red"
             message.style.visibility="visible";
-            message.style.animation="fadeInOut 1.5s";
+            message.style.opacity="1";
+            setTimeout(()=>{
+            message.style.opacity="0";
+            },1000);
             setTimeout(()=>{
             message.style.visibility="hidden";
-            },1550);});
+            },2000);
+        });
 }
 
 function createPlan(){
     let planToCreate=createPlanContent();
     myAxios.post("/plan/create", {data:{plan:planToCreate}})
         .then((resp)=>{
-            refreshPlanList()
+            let id=resp.data.toString();
+            console.log(`id`, id);
+            refreshPlanList(id);
+            message.style.opacity="0";
             message.innerText="Plan succesfully created...";
             message.style.color="green"
             message.style.visibility="visible";
-            message.style.animation="fadeInOut 2s";
+            message.style.opacity="1";
+            setTimeout(()=>{
+            message.style.opacity="0";
+            },1000);
             setTimeout(()=>{
             message.style.visibility="hidden";
-            },2100)
+            },2000);
         })
         .catch((error)=>{console.log(error);
+            message.style.opacity="0";
             message.innerText="ERROR: Plan could not be...";
             message.style.color="red"
             message.style.visibility="visible";
-            message.style.animation="fadeInOut 2s";
+            message.style.opacity="1";
+            setTimeout(()=>{
+            message.style.opacity="0";
+            },1000);
             setTimeout(()=>{
             message.style.visibility="hidden";
-            },2100)});
+            },2000);
+        });
 
 }
 
@@ -186,6 +206,7 @@ function deletePlan(){
     let selectedPlanId = selectPlan.selectedOptions[0].id;
     myAxios.patch("/plan/delete", {data:{planID: selectedPlanId}})
         .then((resp)=>{
+            message.style.opacity="0";
             message.innerText="Plan succesfully DELETED...";
             message.style.color="green"
             message.style.visibility="visible";
@@ -193,17 +214,26 @@ function deletePlan(){
             refreshPlanList()
             setTimeout(()=>{
             message.style.visibility="hidden";
-            },1550);
+            },1000);
+            setTimeout(()=>{
+            message.style.visibility="hidden";
+            },2000);
 
         })
         .catch((error)=>{console.log(error);
+            message.style.opacity="0";
             message.innerText="ERROR: Plan cannot be deleted...";
             message.style.color="red"
             message.style.visibility="visible";
-            message.style.animation="fadeInOut 1.5s";
+            message.style.opacity="1";
+            setTimeout(()=>{
+            message.style.opacity="0";
+            },1000);
             setTimeout(()=>{
             message.style.visibility="hidden";
-            },1550);});
+            },2000);
+        
+        });
 
 }
 
@@ -215,13 +245,15 @@ function createPlanContent(){
     };
     meals.forEach((meal)=>{
         let recipeId = meal.firstElementChild.id;
-        plan.recipes.push({
-            dayOfWeek: meal.classList[2],
-            mealName: meal.classList[1],
-            recipe:recipeId,
-        });
+        if (recipeId!==""){
+            plan.recipes.push({
+                dayOfWeek: meal.classList[2],
+                mealName: meal.classList[1],
+                recipe:recipeId,
+            });
+        }
+        
     });
-
     return plan;
 }
 
@@ -337,14 +369,27 @@ function fillCell(recipeOfMeal){
     refreshDeleteButtons()
 };
 
-function refreshPlanList(){
+function refreshPlanList(id){
+    
     myAxios.get("/planner2/refresh")
         .then((dbRes)=>{
-            console.log(`dbRes`, dbRes);
+            
             let plans=dbRes.data;
             selectPlan.innerHTML="";
             plans.forEach((plan)=>{
-                selectPlan.innerHTML+=`<option id="${plan._id}">${plan.title}</option>`;
+                if (id===undefined || id ===null){
+                    selectPlan.innerHTML+=`<option id="${plan._id}">${plan.title}</option>`;
+                }
+
+                else{
+                    if(plan._id===id){
+                        selectPlan.innerHTML+=`<option selected id="${plan._id}">${plan.title}</option>`;
+                    }
+                    else{
+                        selectPlan.innerHTML+=`<option id="${plan._id}">${plan.title}</option>`;
+                    }
+                }
+                
             })
 
             loadSelectedPlan();

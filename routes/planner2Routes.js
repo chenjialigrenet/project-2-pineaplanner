@@ -8,6 +8,7 @@ const verifyLoggedIn = require('../middlewares/requireAuth');
 
 router.get('/planner2', (req, res, next) => {
   Plan.find({ owner: req.session.currentUserId })
+    .sort({title:1})
     .populate({ path: 'recipes.recipe' })
     .then((plans) => {
       res.render('planner2.hbs', {
@@ -21,6 +22,7 @@ router.get('/planner2', (req, res, next) => {
 
 router.get('/planner2/refresh', (req, res, next) => {
   Plan.find({ owner: req.session.currentUserId })
+    .sort({title:1})
     .then((plans) => { res.status(200).json(plans);})
     .catch((error) => console.log(error));
 
@@ -80,7 +82,6 @@ router.patch('/plan/delete', (req, res, next) => {
   Plan.findByIdAndDelete(data.planID)
     .then(() => {
       res.status(200);
-      res.send("Success");
     })
     .catch((error) => {
       console.log(error);
@@ -97,9 +98,9 @@ router.post('/plan/create', (req, res, next) => {
 
   
   Plan.create(plan)
-    .then(() => {
+    .then((newPlan) => {
       res.status(200);
-      res.send("Success");
+      res.send(`${newPlan._id}`);
     })
     .catch((error) => {
       console.log(error);
