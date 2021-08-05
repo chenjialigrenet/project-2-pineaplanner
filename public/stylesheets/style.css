@@ -25,6 +25,23 @@ body {
   /* border: 1px solid var(--dark-blue); */
 }
 
+#navTitle{
+  display: flex;
+  align-items: center;
+}
+
+#navTitle *{
+  position: relative;
+  top:-3px;
+  font-weight: bold;
+}
+
+#navTitle img{
+  position: relative;
+  top:-8px;
+}
+
+
 .topnav a {
   float: left;
   display: block;
@@ -45,6 +62,12 @@ body {
   color: var(--salmon);
   font-weight: bold;
 }
+
+#smallLogo{
+  height:1.5rem;
+  position: relative;
+}
+
 
 .topnav .icon {
   display: none;
