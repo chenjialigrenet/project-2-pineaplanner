@@ -13,7 +13,7 @@
     <button id="buttonCreate">Create new plan</button>
     
     <select id="selectPlan" name="choosePlan">
-        <option>Choose another plan</option>
+        <option value="" disabled selected>Choose another plan</option>
         {{#each plans}}
         <option id="{{this._id}}">{{this.title}}</option>
         {{/each}}

@@ -35,6 +35,7 @@
   #planTitle{
     font-style: italic;
     color: var(--dark-blue);
+    font-size: 1.7rem;
   }
 
   #planGridWrapper{
