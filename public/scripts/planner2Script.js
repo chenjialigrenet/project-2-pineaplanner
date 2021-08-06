@@ -289,11 +289,14 @@ function refresPlusButtons(){
     let plusButtons=document.querySelectorAll(".addButton");
     plusButtons.forEach((button)=>{
         button.addEventListener('click',(e)=>{
+            getRecipes();
+            setTimeout(()=>{
             modal.classList.toggle("closed");
             modalOverlay.classList.toggle("closed");
             let cell = e.target.closest(".cell");
             cell.classList.toggle('focused');
-            getRecipes();
+            },100)
+            
         });
     })
 }

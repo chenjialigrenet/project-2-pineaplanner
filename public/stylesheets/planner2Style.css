@@ -4,7 +4,7 @@
   --pale-yellow: #f8e16c;
   --pink: #ffc2b4;
   --salmon: #fb8f67;
-  --day-background: #fb8f67;
+  --day-background: #156064;
   --meal-background: #ffffff;
   --day-letterColor: #ffffff;
   --day-letterSize: 1.7rem;
@@ -94,7 +94,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  border: 1px solid var(--salmon);
+  border: 1px solid var(--dark-blue);
 }
 
 .day {
@@ -110,7 +110,7 @@
   border-radius: 50%;
   border: none;
   font-size: 60px;
-  color: var(--salmon);
+  color: var(--button-add-color);
   text-shadow: 2px black;
   background-color: var(--button-add-backColor);
   transition: all 0.2s ease-in-out;
