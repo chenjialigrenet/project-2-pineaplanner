@@ -81,8 +81,7 @@ addRecipeButton.addEventListener("click",(event)=>{
     let imageSRC=image.src;
 
     let recipe = {title:title,_id:id,image:imageSRC};
-    fillCell(recipe);
-    selectedList.classList.toggle("selected");   
+    fillCell(recipe);    
 })
 
 
