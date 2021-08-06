@@ -1,31 +1,36 @@
 //Create axios instance here
 const myAxios = axios.create({ withCredentials: true });
 
+//variables
+let recipes =[];
+let currentPage=1;
+let allPage=0;
+let numberOfSelected=0;
+
 //Elements from document
 //Control on top right corner
-const buttonSave = document.getElementById("buttonSave")
-const buttonCreate = document.getElementById("buttonCreate")
-const buttonDelete = document.getElementById("buttonDelete")
-const selectPlan = document.getElementById("selectPlan")
-const meesage = document.getElementById("message");
-
+const buttonSave =          document.getElementById("buttonSave")
+const buttonCreate =        document.getElementById("buttonCreate")
+const buttonDelete =        document.getElementById("buttonDelete")
+const selectPlan =          document.getElementById("selectPlan")
+const meesage =             document.getElementById("message");
 //Title of the Plan
-const planTitle = document.getElementById("planTitle")
-const icon = document.getElementById("icon");
+const planTitle =           document.getElementById("planTitle")
+const icon =                document.getElementById("icon");
 //Modal controls
-const closeModalButton = document.getElementById("closeModalButton");
-const addRecipeButton = document.getElementById("addRecipeButton");
-const searchInputModal = document.getElementById("searchInputModal");
-const recipeList = document.getElementById("recipeList");
+const closeModalButton =    document.getElementById("closeModalButton");
+const addRecipeButton =     document.getElementById("addRecipeButton");
+const searchInputModal =    document.getElementById("searchInputModal");
+const recipeList =          document.getElementById("recipeList");
 //Modal
-const modal = document.getElementById("modal-planner");
-const modalOverlay = document.getElementById("modal-overlay-planner");
-const buttonPrevPage = document.getElementById("prevPageButton");
-const buttonNextPage = document.getElementById("nextPageButton");
-const currentPageDisplay=document.getElementById("currentPage");
-const allPageDisplay=document.getElementById("allPage");
+const modal =               document.getElementById("modal-planner");
+const modalOverlay =        document.getElementById("modal-overlay-planner");
+const buttonPrevPage =      document.getElementById("prevPageButton");
+const buttonNextPage =      document.getElementById("nextPageButton");
+const currentPageDisplay=   document.getElementById("currentPage");
+const allPageDisplay=       document.getElementById("allPage");
 
-//Events
+//Events + adding eventlisteners
 
 //Plan control
 selectPlan.addEventListener('change', (event) => {
@@ -48,7 +53,7 @@ icon.addEventListener('click',()=>{
     planTitle.focus();
 });
 
-//Modal
+//Modal eventlisteners
 closeModalButton.addEventListener('click',()=>{
     modal.classList.toggle("closed");
     modalOverlay.classList.toggle("closed");
@@ -79,14 +84,11 @@ addRecipeButton.addEventListener("click",(event)=>{
     fillCell(recipe);    
 })
 
-//variables
-let recipes =[];
-let currentPage=1;
-let allPage=0;
-let numberOfSelected=0;
-
 
 //Functions
+
+//Function that reaquests a plan from the server based on a plan id
+//then it fills up the calendar grid based on the received data
 function  loadOnePlan(planId){
     myAxios.get(`/planner2/${planId}`)
         .then((plan)=>{
@@ -112,6 +114,8 @@ function  loadOnePlan(planId){
 
 }
 
+//This function {using also the previous one} decides which plan is chosen in the dropdown box
+//and loads it in
 function loadSelectedPlan(){
     let selectedPlanId = selectPlan.selectedOptions[0].id;
     planTitle.innerText=selectPlan.selectedOptions[0].innerText;
@@ -119,6 +123,9 @@ function loadSelectedPlan(){
     loadOnePlan(selectedPlanId);
 }
 
+
+//Draws all the "+" buttons in the calendae view + makes sure that the events added to them
+//by calling refresh plus buttons funciton
 function createAddButtons(){
     let cells = document.querySelectorAll(".cell.meal");
     cells.forEach((cell)=>{
@@ -127,6 +134,8 @@ function createAddButtons(){
     refresPlusButtons();
 }
 
+
+//Adds the event listeners to the small close-buttons on the mini recipe cards
 function refreshDeleteButtons(){
     let buttons = document.querySelectorAll(".deleteMini");
     buttons.forEach((button)=>{
@@ -139,6 +148,8 @@ function refreshDeleteButtons(){
     })
 }
 
+//Funtcion that makes a request to update a plan based on the plan selected in the dropdown box
+//plus the content visible in grid
 function savePlan(){
     let planToSend =createPlanContent();
     let selectedPlanId = selectPlan.selectedOptions[0].id;
@@ -146,6 +157,7 @@ function savePlan(){
     myAxios.patch("/plan/update", {data:{planID: selectedPlanId, plan:planToSend}})
         .then((resp)=>{
             refreshPlanList(selectedPlanId);
+            //this following lines control the feedback texts shozing up after caryyingo out an acction
             message.style.opacity="0";
             message.innerText="Plan succesfully saved...";
             message.style.color="green"
@@ -174,6 +186,7 @@ function savePlan(){
         });
 }
 
+//Funtcion that makes a request to create a new plan based on the content visible in grid
 function createPlan(){
     let planToCreate=createPlanContent();
     myAxios.post("/plan/create", {data:{plan:planToCreate}})
@@ -209,6 +222,7 @@ function createPlan(){
 
 }
 
+//Funtcion to simply make a request to delete a plan
 function deletePlan(){
 
     let selectedPlanId = selectPlan.selectedOptions[0].id;
@@ -247,6 +261,9 @@ function deletePlan(){
 
 }
 
+
+//This function collects all the recipes found in the calendar and returns it in a format
+//that can be used to create/update a plan on server side
 function createPlanContent(){
     let meals = document.querySelectorAll(".cell:not(.day)");
     let plan ={
@@ -267,6 +284,7 @@ function createPlanContent(){
     return plan;
 }
 
+//Adding the event listener to the buttons which let you add a new recipe to the  day
 function refresPlusButtons(){
     let plusButtons=document.querySelectorAll(".addButton");
     plusButtons.forEach((button)=>{
@@ -280,6 +298,9 @@ function refresPlusButtons(){
     })
 }
 
+
+//in the popup modal this function get all the recipes from the database and saves it in a local object
+//based on the text provided in the search bar
 function getRecipes(){
     let searchTitle = searchInputModal.value;
     if (searchTitle === '') {
@@ -294,6 +315,9 @@ function getRecipes(){
         .catch((error)=>console.log(error))
 }
 
+
+//this function filles up the popup modal recipe list based on a provided filtered list
+//it also makes sure that there is only one seleceted recipe at all the time
 function refreshRecipeList(filteredList){
     recipeList.innerHTML="";
     filteredList.forEach((recipe)=>{
@@ -325,12 +349,15 @@ function refreshRecipeList(filteredList){
 
 };
 
+//Function to filter the local recipe object that holds all the recipesa
 function filterList(){
     let filteredList= recipes.filter((recipe)=>{return recipe.title.toLowerCase().includes(searchInputModal.value);
     });
     return filteredList;
 }
 
+
+//Functon that handles the pagination on the popup modal, go to next page
 function goNextPage() {
     if (currentPage < allPage) {
       currentPage++;
@@ -343,6 +370,7 @@ function goNextPage() {
     updatePageValues();
   }
   
+//Functon that handles the pagination on the popup modal, go to previous page
 function goPreviousPage() {
     if (currentPage > 0) {
       currentPage--;
@@ -355,6 +383,7 @@ function goPreviousPage() {
     updatePageValues();
   }
 
+  //Function that updates the  recipe list in the popup model when page is changed
 function updatePageValues(){
     let filteredList = filterList();
     let allRecipeNumber = filteredList.length;
@@ -365,6 +394,7 @@ function updatePageValues(){
     refreshRecipeList(recipesOnPage);
   };
 
+  //Function that places the chosen recipe on a specific day of a calendar
 function fillCell(recipeOfMeal){
     let cell = document.querySelector(".focused");
     cell.innerHTML=`<div class="miniRecipe" id="${recipeOfMeal._id}">
@@ -379,6 +409,8 @@ function fillCell(recipeOfMeal){
     refreshDeleteButtons()
 };
 
+//This function updates the list of plans in the dropdown box based on the database
+//And preselects one based on an ID
 function refreshPlanList(id){
     
     myAxios.get("/planner2/refresh")

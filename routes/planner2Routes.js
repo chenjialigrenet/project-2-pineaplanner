@@ -1,11 +1,18 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
-const Recipe = require('../models/Recipe.model');
-const Plan = require('../models/Plan.model');
-const User = require('../models/User.model');
-const verifyLoggedIn = require('../middlewares/requireAuth');
+//Required modules
+const express =           require('express');
+const router =            express.Router();
+const mongoose =          require('mongoose');
 
+//Required models
+const Recipe =            require('../models/Recipe.model');
+const Plan =              require('../models/Plan.model');
+const User =              require('../models/User.model');
+
+//REquired middlewares
+const verifyLoggedIn =    require('../middlewares/requireAuth');
+
+
+//Routes that provides recipes to the planner based on different search and filtering criterias
 router.get('/planner2', (req, res, next) => {
   Plan.find({ owner: req.session.currentUserId })
     .sort({title:1})
@@ -20,6 +27,7 @@ router.get('/planner2', (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
+//Router provide the plans to the client owned by a user 
 router.get('/planner2/refresh', (req, res, next) => {
   Plan.find({ owner: req.session.currentUserId })
     .sort({title:1})
@@ -28,7 +36,7 @@ router.get('/planner2/refresh', (req, res, next) => {
 
 });
 
-
+//Gives the recipes based on serach parameters
 router.get('/planner2/getrecipes', (req, res, next) => {
 
   let searchTitle = req.params.search;
@@ -54,6 +62,7 @@ router.get('/planner2/getrecipes', (req, res, next) => {
 
 });
 
+//Gives a specific plan to the client
 router.get('/planner2/:planId', (req, res, next) => {
   Plan.findById(req.params.planId)
     .populate({ path: 'recipes.recipe' })
@@ -65,6 +74,7 @@ router.get('/planner2/:planId', (req, res, next) => {
     });
 });
 
+//Router that handles the update of a plan
 router.patch('/plan/update', (req, res, next) => {
   let data = req.body.data;
   Plan.findByIdAndUpdate(data.planID, data.plan)
@@ -77,6 +87,7 @@ router.patch('/plan/update', (req, res, next) => {
     });
 });
 
+//Router that handles the deletion of a plan
 router.patch('/plan/delete', (req, res, next) => {
   let data = req.body.data;
   console.log(`data`, data);
@@ -90,8 +101,7 @@ router.patch('/plan/delete', (req, res, next) => {
     });
 });
 
-
-
+//Router that handles the creation of a plan
 router.post('/plan/create', (req, res, next) => {
   let data = req.body.data;
   let plan = data.plan;
@@ -109,7 +119,7 @@ router.post('/plan/create', (req, res, next) => {
     });
 });
 
-// add one recipe to planner
+// Add one recipe to a plan
 router.post('/planner2/add-to-plan', (req, res, next) => {
   Plan.findById(req.body.planId)
     .then((plan) => {
@@ -143,7 +153,5 @@ router.post('/planner2/add-to-plan', (req, res, next) => {
       next(err);
     });
 });
-
-
 
 module.exports = router;
