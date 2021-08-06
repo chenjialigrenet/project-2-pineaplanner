@@ -29,6 +29,7 @@ const modal =                         document.getElementById('modal');
 const modalOverlay =                  document.getElementById('modal-overlay');
 const showAddToPlannerModal =         document.getElementById('modal-addToPlanner');
 const showAddToPlannerModalOverlay =  document.getElementById('modal-overlay-addToPlanner');
+const closeAddToPlannerModalBtn =     document.getElementById('close-addToPlanner-modal');
 const btnAddToPlannerModal =          document.getElementById('btn-add-modal');
 const btnAddToPlanner =               document.getElementById('btn-add');
 
@@ -43,7 +44,7 @@ const servings =                      document.getElementById('servings');
 const instructionsList =              document.getElementById('instructionsList');
 
 //Event + ecenthandlesrs
-
+addClicks();
 closeModalButton.onclick = () => {
   modal.classList.toggle('closed');
   modalOverlay.classList.toggle('closed');
@@ -74,7 +75,7 @@ tagsForm.onchange = handleChange;
 //Needs to run when the script loads in
 let allPage =                   allPageDisplay.innerText;
 currentPageDisplay.innerText =  currentPage;
-addClicks();
+
 
 //Functions
 
@@ -148,9 +149,10 @@ function fillModal(recipe) {
 //acces the recipe modal
 function addClicks() {
   let recipeCards = document.querySelectorAll('.recipe-cards');
-
+  console.log(`I am here`);
   recipeCards.forEach((card) => {
     card.addEventListener('click', () => {
+      console.log(`I am here`);
       showModal(card.id);
     });
   });
@@ -246,3 +248,4 @@ function refreshDisplay(recipeList) {
 
   addClicks();
 }
+
