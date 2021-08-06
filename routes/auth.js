@@ -43,18 +43,22 @@ router.post('/login', async (req, res, next) => {
     const password = req.body.password;
 
     const user = await User.findOne({ email });
+    
 
     if (!user) throw new Error({ status: 204, text: 'Wrong credentials !' });
 
+    const isValidPwd = bcrypt.compareSync(
+      password,
+      user.password
+    )
+
+    if (!isValidPwd) throw new Error({ status: 204, text: 'Wrong credentials !'})
     req.session.currentUserId = user.id;
-    console.log(req.session.currentUserId);
+    
     res.redirect('/planner2');
   } catch (error) {
-    console.log(error); //Checking what the error is (delete this line)
-    res.render('login', {
-      msg: { status: error.status, text: error.text },
-      style: ['signInUp.css'],
-    });
+    
+    res.redirect('/');
   }
 });
 

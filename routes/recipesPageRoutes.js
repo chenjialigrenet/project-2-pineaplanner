@@ -1,8 +1,14 @@
+//REquired modules
 const express = require('express');
 const router = express.Router();
+
+//Required models
 const recipeModel = require('../models/Recipe.model');
+
+//Variables
 const itemPerPage = 30;
 
+//PAgination helper class
 class PaginationHelper {
   constructor(itemsPerPage) {
     this.itemsPerPage = itemsPerPage;
@@ -24,11 +30,11 @@ class PaginationHelper {
   }
 }
 
+
 const pageHelper = new PaginationHelper(itemPerPage);
-/** For AJAX
- * This router handles ajax requests.
- **/
-//To give back all the lists
+
+
+//Route to give back all the recipes on a page
 router.post('/recipes/page/:page', (req, res, next) => {
   const page = req.params.page;
   console.log(req.body);
@@ -96,7 +102,7 @@ router.post('/recipes/page/:page', (req, res, next) => {
     });
 });
 
-//GET One Recipe Page//
+//Route to provide on recipe on the page
 router.get('/recipes/page/:id', (req, res, next) => {
   recipeModel
     .findById(req.params.id)

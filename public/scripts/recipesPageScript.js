@@ -1,39 +1,55 @@
-const buttonNextPage = document.getElementById('nextPageButton');
-const buttonPrevPage = document.getElementById('prevPageButton');
-const buttonSearch = document.getElementById('searchButton');
-const currentPageDisplay = document.getElementById('currentPage');
-const allPageDisplay = document.getElementById('allPage');
-const recipesContainer = document.getElementById('recipes-recipe-wrapper');
 
-const inputVegan = document.getElementById('input_dishVegan');
-const inputVegetarian = document.getElementById('input_dishVegetarian');
-const inputDairyFree = document.getElementById('input_dishDairyFree');
-const inputGlutenFree = document.getElementById('input_dishGlutenFree');
-const searchBar = document.getElementById('searchText');
-const dishTypeBoxes = document.querySelectorAll('.checkboxDishType');
-const tagsForm = document.getElementById('filterTags');
+//Elements get from the page for DOM
 
-//modal
-const addRecipeModalRecipeId = document.getElementById('modal-recipe-id');
-const closeModalButton = document.getElementById('close-modal');
-const closeAddToPlannerModalBtn = document.getElementById(
-  'close-addToPlanner-modal'
-);
-const modal = document.getElementById('modal');
-const modalOverlay = document.getElementById('modal-overlay');
-const showAddToPlannerModal = document.getElementById('modal-addToPlanner');
-const showAddToPlannerModalOverlay = document.getElementById(
-  'modal-overlay-addToPlanner'
-);
-const btnAddToPlannerModal = document.getElementById('btn-add-modal');
-const btnAddToPlanner = document.getElementById('btn-add');
+//Variables
+let currentPage =   1;
+let recipePerPage = 30;
 
+//elements correlatinf to the page controls
+const buttonNextPage =                document.getElementById('nextPageButton');
+const buttonPrevPage =                document.getElementById('prevPageButton');
+const buttonSearch =                  document.getElementById('searchButton');
+const currentPageDisplay =            document.getElementById('currentPage');
+const allPageDisplay =                document.getElementById('allPage');
+const recipesContainer =              document.getElementById('recipes-recipe-wrapper');
+
+//elements correlatinf to the tags
+const inputVegan =                    document.getElementById('input_dishVegan');
+const inputVegetarian =               document.getElementById('input_dishVegetarian');
+const inputDairyFree =                document.getElementById('input_dishDairyFree');
+const inputGlutenFree =               document.getElementById('input_dishGlutenFree');
+const searchBar =                     document.getElementById('searchText');
+const dishTypeBoxes =                 document.querySelectorAll('.checkboxDishType');
+const tagsForm =                      document.getElementById('filterTags');
+
+//elements correlatinf to the 'ädd to plan' modal
+const addRecipeModalRecipeId =        document.getElementById('modal-recipe-id');
+const closeModalButton =              document.getElementById('close-modal');
+const modal =                         document.getElementById('modal');
+const modalOverlay =                  document.getElementById('modal-overlay');
+const showAddToPlannerModal =         document.getElementById('modal-addToPlanner');
+const showAddToPlannerModalOverlay =  document.getElementById('modal-overlay-addToPlanner');
+const closeAddToPlannerModalBtn =     document.getElementById('close-addToPlanner-modal');
+const btnAddToPlannerModal =          document.getElementById('btn-add-modal');
+const btnAddToPlanner =               document.getElementById('btn-add');
+
+//elements correlatinf to the 'recipe card' modal
+const modalImage =                    document.getElementById('modalImage');
+const modalTagsWrapper =              document.getElementById('modalTagsWrapper');
+const ingredientList =                document.getElementById('ingredientList');
+const modalRecipeTitle =              document.getElementById('recipeTitle');
+const modalSummarry =                 document.getElementById('modalSummarry');
+const readyInMin =                    document.getElementById('readyInMin');
+const servings =                      document.getElementById('servings');
+const instructionsList =              document.getElementById('instructionsList');
+
+//Event + ecenthandlesrs
+addClicks();
 closeModalButton.onclick = () => {
   modal.classList.toggle('closed');
   modalOverlay.classList.toggle('closed');
 };
 
-/////////////add to planner modal
 closeAddToPlannerModalBtn.onclick = () => {
   modal.classList.add('closed');
   modalOverlay.classList.add('closed');
@@ -47,22 +63,6 @@ btnAddToPlannerModal.addEventListener('click', function () {
   //showAddToPlannerModalOverlay.classList.toggle('closed');
 });
 
-/////////////
-
-const modalImage = document.getElementById('modalImage');
-const modalTagsWrapper = document.getElementById('modalTagsWrapper');
-const ingredientList = document.getElementById('ingredientList');
-const modalRecipeTitle = document.getElementById('recipeTitle');
-const modalSummarry = document.getElementById('modalSummarry');
-const readyInMin = document.getElementById('readyInMin');
-const servings = document.getElementById('servings');
-const instructionsList = document.getElementById('instructionsList');
-
-let currentPage = 1;
-let allPage = allPageDisplay.innerText;
-let recipePerPage = 30;
-currentPageDisplay.innerText = currentPage;
-
 buttonNextPage.onclick = goNextPage;
 buttonPrevPage.onclick = goPreviousPage;
 buttonSearch.onclick = () => {
@@ -71,9 +71,16 @@ buttonSearch.onclick = () => {
 };
 tagsForm.onchange = handleChange;
 
-//Section that runs when you load the pageCount
-addClicks();
 
+//Needs to run when the script loads in
+let allPage =                   allPageDisplay.innerText;
+currentPageDisplay.innerText =  currentPage;
+
+
+//Functions
+
+//Function that shows the recipe card modal and loads it up with data recieved form the db
+//based on a mrecipe ID
 function showModal(id) {
   axios
     .get(`/recipes/page/${id}`)
@@ -91,12 +98,15 @@ function showModal(id) {
     });
 }
 
+//Just plecleaning the modal
 function cleanModal() {
   modalTagsWrapper.innerHTML = '';
   ingredientList.innerHTML = '';
   instructionsList.innerHTML = '';
 }
 
+//The actual function the takes the recipe data and reformats it to fit the structue of the modal
+//then is fills up the modal
 function fillModal(recipe) {
   modalImage.src = recipe.image;
 
@@ -135,16 +145,21 @@ function fillModal(recipe) {
   instructionsList.innerHTML = recipe.instructions;
 }
 
+//Add the ventlistened to all the recipe cards displayed so when we click on them we can
+//acces the recipe modal
 function addClicks() {
   let recipeCards = document.querySelectorAll('.recipe-cards');
-
+  console.log(`I am here`);
   recipeCards.forEach((card) => {
     card.addEventListener('click', () => {
+      console.log(`I am here`);
       showModal(card.id);
     });
   });
 }
 
+//Function that handles any change occuring on the filter tags form
+//And makes a request to all the recipes that fit the filtering criteria
 function handleChange() {
   let dishTypes = [];
   let glutenFree = false;
@@ -197,6 +212,8 @@ function handleChange() {
     });
 }
 
+
+//Function to handle go to the next pages
 function goNextPage() {
   if (currentPage < allPage) {
     currentPage++;
@@ -205,6 +222,7 @@ function goNextPage() {
   }
 }
 
+//Function to handle go to the previous pages
 function goPreviousPage() {
   if (currentPage > 0) {
     currentPage--;
@@ -213,6 +231,7 @@ function goPreviousPage() {
   }
 }
 
+//Refreshes the grid  and fils it up with the given recipes
 function refreshDisplay(recipeList) {
   let allRecipeNumber = recipeList.allPage;
   allPage = Math.ceil(allRecipeNumber / recipePerPage);
@@ -229,3 +248,4 @@ function refreshDisplay(recipeList) {
 
   addClicks();
 }
+
