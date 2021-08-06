@@ -21,6 +21,7 @@ const inputGlutenFree =               document.getElementById('input_dishGlutenF
 const searchBar =                     document.getElementById('searchText');
 const dishTypeBoxes =                 document.querySelectorAll('.checkboxDishType');
 const tagsForm =                      document.getElementById('filterTags');
+const tagsDishForm =                  document.getElementById('formDishType');
 
 //elements correlatinf to the 'ädd to plan' modal
 const addRecipeModalRecipeId =        document.getElementById('modal-recipe-id');
@@ -70,6 +71,7 @@ buttonSearch.onclick = () => {
   handleChange();
 };
 tagsForm.onchange = handleChange;
+tagsDishForm.onchange = handleChange;
 
 
 //Needs to run when the script loads in
@@ -149,10 +151,9 @@ function fillModal(recipe) {
 //acces the recipe modal
 function addClicks() {
   let recipeCards = document.querySelectorAll('.recipe-cards');
-  console.log(`I am here`);
   recipeCards.forEach((card) => {
     card.addEventListener('click', () => {
-      console.log(`I am here`);
+
       showModal(card.id);
     });
   });
@@ -161,6 +162,7 @@ function addClicks() {
 //Function that handles any change occuring on the filter tags form
 //And makes a request to all the recipes that fit the filtering criteria
 function handleChange() {
+
   let dishTypes = [];
   let glutenFree = false;
   let vegan = false;
@@ -239,7 +241,7 @@ function refreshDisplay(recipeList) {
   allPageDisplay.innerText = allPage;
   recipesContainer.innerHTML = '';
   recipeList.recipes.forEach((recipe) => {
-    console.log(recipe);
+
     recipesContainer.innerHTML += `<div class="recipe-cards" id="${recipe._id}">
                 <img src="${recipe.image}" alt="image">
                 <h5> ${recipe.title}</h5>

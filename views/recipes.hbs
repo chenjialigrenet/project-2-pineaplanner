@@ -42,20 +42,22 @@
                 </ul>
             </div>
         </div>
-    
 
+        </form>
 
-        <div class="dropdown">
-            <h2 class="drop-on-hover">Filter by Dish Type</h2>
-            <div class="dropdown-content">
-                <ul id="dishTypeList">
+            <div class="dropdown">
+                <form id="formDishType">
+                    <h2 class="drop-on-hover">Filter by Dish Type</h2>
+                    <div class="dropdown-content">
+                    <ul id="dishTypeList">
                     {{#each dishTypes}}
                         {{>dishTypeList this}}
                     {{/each }}
-                </ul>
+                        </ul>
+                </form>
+
             </div>
         </div>
-        </form>
 
     </div>
     

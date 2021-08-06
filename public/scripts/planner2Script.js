@@ -408,6 +408,7 @@ function fillCell(recipeOfMeal){
                             </div>
                     </div>`;
     numberOfSelected=0;
+
     cell.classList.toggle("focused");
     refreshDeleteButtons()
 };

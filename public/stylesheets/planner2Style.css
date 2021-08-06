@@ -24,6 +24,12 @@
   --headerSelectBorder: 1px solid #156064;
 }
 
+.selected {
+  background-color: var(--salmon);
+  color: white;
+  font-weight: bolder;
+}
+
 #planContainer {
   margin-top: 2rem;
   display: flex;
@@ -326,11 +332,7 @@ li:hover .tooltip {
   margin: 0 5px;
 }
 
-.selected {
-  background-color: var(--salmon);
-  color: white;
-  font-weight: bolder;
-}
+
 
 #navPlanner {
   font-size: var(--active-fontsize);
