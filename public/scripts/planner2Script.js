@@ -91,7 +91,7 @@ function  loadOnePlan(planId){
     myAxios.get(`/planner2/${planId}`)
         .then((plan)=>{
             let recipes = plan.data.recipes;
-            
+            createAddButtons();
             recipes.forEach(recipe => {
                 let day = recipe.dayOfWeek.toLowerCase();
                 let meal = recipe.mealName.toLowerCase();
@@ -117,6 +117,14 @@ function loadSelectedPlan(){
     planTitle.innerText=selectPlan.selectedOptions[0].innerText;
     buttonSave.disabled=false;
     loadOnePlan(selectedPlanId);
+}
+
+function createAddButtons(){
+    let cells = document.querySelectorAll(".cell.meal");
+    cells.forEach((cell)=>{
+    cell.innerHTML=`<button class="addButton">+</button>`
+    });
+    refresPlusButtons();
 }
 
 function refreshDeleteButtons(){
@@ -204,8 +212,10 @@ function createPlan(){
 function deletePlan(){
 
     let selectedPlanId = selectPlan.selectedOptions[0].id;
+    console.log(`selectedPlanId`, selectedPlanId)
     myAxios.patch("/plan/delete", {data:{planID: selectedPlanId}})
         .then((resp)=>{
+            console.log(`i am here`);
             message.style.opacity="0";
             message.innerText="Plan succesfully DELETED...";
             message.style.color="green"
@@ -247,8 +257,8 @@ function createPlanContent(){
         let recipeId = meal.firstElementChild.id;
         if (recipeId!==""){
             plan.recipes.push({
-                dayOfWeek: meal.classList[2],
-                mealName: meal.classList[1],
+                dayOfWeek: meal.classList[3],
+                mealName: meal.classList[2],
                 recipe:recipeId,
             });
         }

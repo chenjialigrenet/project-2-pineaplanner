@@ -13,15 +13,15 @@
 } */
 
 .flex-wrapper {
-  margin-top: 70px;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgba(248, 245, 245, 0.61);
-  border-radius: 5px;
+  border-radius: 10px;
   max-width: 80%;
   max-height: fit-content;
-  padding: 5rem 3rem;
+  padding: 6rem 13rem;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -32,29 +32,27 @@
   }
 }
 
-.container {
-  /* background-image: url('/images/jimmy-dean-Yn0l7uwBrpw-unsplash.jpg'); */
+/* .container { */
+/* background-image: url('/images/jimmy-dean-Yn0l7uwBrpw-unsplash.jpg'); */
 
-  /* background-image: url('/images/hello-i-m-nik-SpP3InZud7E-unsplash.jpg'); */
+/* background-image: url('/images/hello-i-m-nik-SpP3InZud7E-unsplash.jpg'); */
 
-  /* background-image: url('/images/matthias-cooper-r3tjnNRMadY-unsplash.jpg'); */
+/* background-image: url('/images/matthias-cooper-r3tjnNRMadY-unsplash.jpg'); */
 
-  /* background-image: url('/images/andrew-molyneaux-X00aKdald68-unsplash.jpg'); */
-  /* background-image: url('https://www.allmychefs.com/images/1412/1200-auto/ananas_000.jpg?poix=50&poiy=50');
+/* background-image: url('/images/andrew-molyneaux-X00aKdald68-unsplash.jpg'); */
+/* background-image: url('https://www.allmychefs.com/images/1412/1200-auto/ananas_000.jpg?poix=50&poiy=50');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat; */
-  /* background-size: cover; */
-  height: 100%;
-  width: 100%;
-}
+/* background-size: cover; */
+/* height: 100vh; */
+/* } */
 
-#background{
+#background {
   position: absolute;
   z-index: -25;
   transform: rotateZ(-30deg);
-  top:-80px;
-
+  top: -80px;
 }
 
 .modal {
@@ -89,6 +87,7 @@ h1 {
 }
 
 .pitch h2 {
+  padding-bottom: 0.5rem;
   color: var(--pitch);
 }
 

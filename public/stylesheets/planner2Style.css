@@ -1,370 +1,365 @@
 :root {
-    --dark-blue: #156064;
-    --mint-green: #00c49a;
-    --pale-yellow: #f8e16c;
-    --pink: #ffc2b4;
-    --salmon: #fb8f67;
-    --day-background: #fb8f67;
-    --meal-background: #ffffff;
-    --day-letterColor: #ffffff;
-    --day-letterSize: 1.7rem;
-    --login-border: #156064;
-    --login-background: #156064;
-    --gridBackGround: #ffffff;
-    --button-add-color: #156064;
-    --button-add-backColor: #eeeeee00;
-    --button-add-backColorHover: #ffc2b400;
-    --button-add-ColorHover: #fb8f67;
-    --button-add-diameter:80px;
-    --headerButtonColor: #ffffff;
-    --headerButtonBackGround:#156064;
-    --headerButtonBackGroundHover:#fb8f67;
-    --headerSelectBackGround:#ffffff;
-    --headerSelectColor:#fb8f67;
-    --headerSelectBorder:1px solid #156064;
-
-  }
-
-  #planContainer{
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  #planTitle{
-    font-style: italic;
-    color: var(--dark-blue);
-    font-size: 1.7rem;
-  }
-
-  #planGridWrapper{
-    margin: 1rem 0;
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: 180px;
-    gap: 5px;
-    align-self: center;
-    background-color: var(--gridBackGround);
+  --dark-blue: #156064;
+  --mint-green: #00c49a;
+  --pale-yellow: #f8e16c;
+  --pink: #ffc2b4;
+  --salmon: #fb8f67;
+  --day-background: #fb8f67;
+  --meal-background: #ffffff;
+  --day-letterColor: #ffffff;
+  --day-letterSize: 1.7rem;
+  --login-border: #156064;
+  --login-background: #156064;
+  --gridBackGround: #ffffff;
+  --button-add-color: #156064;
+  --button-add-backColor: #eeeeee00;
+  --button-add-backColorHover: #ffc2b400;
+  --button-add-ColorHover: #fb8f67;
+  --button-add-diameter: 80px;
+  --headerButtonColor: #ffffff;
+  --headerButtonBackGround: #156064;
+  --headerButtonBackGroundHover: #fb8f67;
+  --headerSelectBackGround: #ffffff;
+  --headerSelectColor: #156064;
+  --headerSelectBorder: 1px solid #156064;
 }
 
-#planHeader{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
+#planContainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#planHeader button{
-    color: var(--headerButtonColor);
-    background-color: var(--headerButtonBackGround);
-    border: transparent;
-    padding:3px;
-    border-radius: 2px;
-    transition: all 0.2s ease-in-out;
+#planTitle {
+  font-style: italic;
+  color: var(--dark-blue);
+  font-size: 1.7rem;
 }
 
-#planHeader button:disabled{
-    color: var(--headerButtonColor);
-    background-color: #a8a7a7 ;
-
+#planGridWrapper {
+  margin: 1rem 0;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 180px;
+  gap: 5px;
+  align-self: center;
+  background-color: var(--gridBackGround);
 }
 
-#planHeader button:enabled:hover{
-
-    background-color: var(--headerButtonBackGroundHover);
-
+#planHeader {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
 }
 
-#planHeader select{
-    padding:1px;
-    background-color: var(--headerSelectBackGround);
-    color: var(--headerSelectColor);
-    font-weight: bold;
-    border: var(--headerSelectBorder);
+#planHeader button {
+  color: var(--headerButtonColor);
+  background-color: var(--headerButtonBackGround);
+  border: transparent;
+  padding: 3px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
 }
 
-
-#icon{
-    height: 1rem;
-    justify-self: flex-start;
+#planHeader button:disabled {
+  color: var(--headerButtonColor);
+  background-color: #a8a7a7;
 }
 
-.cell{
-    width: 100%;
-    height: 100%;
-    background-color: var(--meal-background);
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    border: 1px solid var(--dark-blue);
+#planHeader button:enabled:hover {
+  background-color: var(--headerButtonBackGroundHover);
 }
 
-.day{
-    font-size: var(--day-letterSize);
-    color: var(--day-letterColor);
-    text-shadow: 2px black;
-    background-color: var(--day-background);
+#planHeader select {
+  padding: 1px;
+  background-color: var(--headerSelectBackGround);
+  color: var(--headerSelectColor);
+  font-weight: bold;
+  border: var(--headerSelectBorder);
 }
 
-.addButton{
-    height: var(--button-add-diameter);
-    width: var(--button-add-diameter);
-    border-radius: 50%;
-    border: none;
-    font-size: 60px;
-    color:var(--button-add-color);
-    text-shadow: 2px black;
-    background-color: var(--button-add-backColor);
-    transition: all 0.2s ease-in-out;
+#icon {
+  height: 1rem;
+  justify-self: flex-start;
 }
 
-.addButton:hover{
-    transform: scale(1.5);
-    background-color: var(--button-add-backColorHover);
-    color:var(--button-add-ColorHover);
+.cell {
+  width: 100%;
+  height: 100%;
+  background-color: var(--meal-background);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border: 1px solid var(--salmon);
 }
 
-.miniRecipe{
-    width: 100%;
-    max-height: 90%;
-    
-    position: relative;
-    /* background-image: url("https://spoonacular.com/recipeImages/716268-556x370.jpg");
+.day {
+  font-size: var(--day-letterSize);
+  color: var(--day-letterColor);
+  text-shadow: 2px black;
+  background-color: var(--day-background);
+}
+
+.addButton {
+  height: var(--button-add-diameter);
+  width: var(--button-add-diameter);
+  border-radius: 50%;
+  border: none;
+  font-size: 60px;
+  color: var(--salmon);
+  text-shadow: 2px black;
+  background-color: var(--button-add-backColor);
+  transition: all 0.2s ease-in-out;
+}
+
+.addButton:hover {
+  transform: scale(1.5);
+  background-color: var(--button-add-backColorHover);
+  color: var(--button-add-ColorHover);
+}
+
+.miniRecipe {
+  width: 100%;
+  max-height: 90%;
+
+  position: relative;
+  /* background-image: url("https://spoonacular.com/recipeImages/716268-556x370.jpg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    padding: 5px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-.miniRecipe img{
-    width: 100%;
-    max-height: 100%;
+.miniRecipe img {
+  width: 100%;
+  max-height: 100%;
 }
 
-.miniRecipe h5{
-    font-size: 0.7rem;
+.miniRecipe h5 {
+  font-size: 0.7rem;
 }
 
-.miniRecipe button{
-    color: var(--headerButtonColor);
-    background-color: var(--salmon);
-    border: transparent;
-    border-radius: 2px;
-    transition: all 0.2s ease-in-out;
-    padding:1px;
-    margin-left: 1px;
+.miniRecipe button {
+  color: var(--headerButtonColor);
+  background-color: var(--salmon);
+  border: transparent;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+  padding: 1px;
+  margin-left: 1px;
 }
 
-.miniRecipe button:hover{
-    background-color: var(--headerButtonBackGround);
+.miniRecipe button:hover {
+  background-color: var(--headerButtonBackGround);
 }
 
-#miniId{
-    width: 100%;
-    background-color: var(--salmon);
-    color:white;
-    display: flex;
-    justify-content: center;
+#miniId {
+  width: 100%;
+  background-color: var(--salmon);
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
-.deleteMini{
-    position: absolute;
-    top:10%;
-    left:5%;
+.deleteMini {
+  position: absolute;
+  top: 10%;
+  left: 5%;
 }
 
 #modal-planner {
-    max-height: 80%;
-    width: 540px;
-    height: 500px;
-    max-width: 90%;
-    position: fixed;
-    z-index: 100;
-    left: 50%;
-    top: 50%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 3px 0px 3px var(--dark-blue),0px 3px 3px var(--dark-blue),-3px 0px 3px var(--dark-blue),3px -3px 3px var(--dark-blue);
-    border-radius: 15px;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 0.4s;
-    max-height: calc(100% - 20px);
-    
+  max-height: 80%;
+  width: 540px;
+  height: 500px;
+  max-width: 90%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 3px 0px 3px var(--dark-blue), 0px 3px 3px var(--dark-blue),
+    -3px 0px 3px var(--dark-blue), 3px -3px 3px var(--dark-blue);
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.4s;
+  max-height: calc(100% - 20px);
 }
 #modal-overlay-planner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 50;
-    background: rgba(0, 0, 0, 0.6);
-    animation: fadeIn 0.4s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.4s;
+}
+
+#modalWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+#modalWrapper button {
+  color: var(--headerButtonColor);
+  background-color: var(--headerButtonBackGround);
+  border: transparent;
+  padding: 3px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+#modalWrapper button:hover {
+  background-color: var(--salmon);
+}
+
+#addRecipeButton {
+  margin-top: 20px;
+}
+
+#closeModalButton {
+  align-self: flex-end;
+  position: relative;
+  right: 5px;
+  transform: scale(1.1);
+}
+
+#modalWrapper h3 {
+  color: var(--dark-blue);
+  font-size: 2rem;
+}
+
+#modalWrapper h3 {
+  color: var(--dark-blue);
+  font-size: 2rem;
+}
+
+.closed {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-#modalWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding:10px;
-    
-    height: 100%;
-    justify-content: space-evenly;
-
-}
-
-#modalWrapper button{
-    color: var(--headerButtonColor);
-    background-color: var(--headerButtonBackGround);
-    border: transparent;
-    padding:3px;
-    border-radius: 2px;
-    transition: all 0.2s ease-in-out;
-}
-
-#modalWrapper button:hover{
-    background-color: var(--salmon);
-}
-
-#addRecipeButton{
-    margin-top: 20px;
-}
-
-#closeModalButton{
-    align-self: flex-end;
-    position: relative;
-    right:5px;
-    transform: scale(1.1);
-}
-
-#modalWrapper h3{
-    color: var(--dark-blue);
-    font-size: 2rem;
-}
-
-#modalWrapper h3{
-    color: var(--dark-blue);
-    font-size: 2rem;
-}
-
-  .closed {
-    display: none;
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
 }
 
-#recipeList{
-    list-style-type: none;
+#recipeList {
+  list-style-type: none;
 }
-li{
-    position: relative;
-    
-}
-
-.tooltip{
-    position: absolute;
-    top:0px;
-    right:0px;
-    bottom: 0px;
-    z-index: 1;
-    visibility: hidden;
-    width: 150px;
-    border-radius: 5px;
-    border:5px solid var(--pink);
+li {
+  position: relative;
 }
 
-
-li:hover{
-    background-color: var(--pink);
-    color: white;
-    cursor:pointer;
-    
+.tooltip {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+  visibility: hidden;
+  width: 150px;
+  border-radius: 5px;
+  border: 5px solid var(--pink);
 }
 
-li:hover .tooltip{
-    visibility: visible;
-    z-index: 25;
+li:hover {
+  background-color: var(--pink);
+  color: white;
+  cursor: pointer;
 }
 
-#modal-planner h3{
-    margin: 20px;
+li:hover .tooltip {
+  visibility: visible;
+  z-index: 25;
 }
 
-#searchDiv{
-    justify-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100px;
+#modal-planner h3 {
+  margin: 20px;
 }
 
-
-#recipeList{
-    border:1px solid var(--dark-blue);
+#searchDiv {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100px;
 }
 
-#listBoxContainer{
-    
-    width: 100%;
-    height:auto;
-    align-self: flex-end;
+#recipeList {
+  border: 1px solid var(--dark-blue);
 }
 
-#modalPageContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
+#listBoxContainer {
+  width: 100%;
+  height: auto;
+  align-self: flex-end;
 }
 
-#modalPageContainer button{
-    margin: 0 5px;
+#modalPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 }
 
-.selected{
-    background-color: var(--salmon);
-    color:white;
-    font-weight: bolder;
+#modalPageContainer button {
+  margin: 0 5px;
 }
 
-#navPlanner{
-    font-size: var(--active-fontsize);
-    font-weight: bolder;
-    color:var(--salmon);
+.selected {
+  background-color: var(--salmon);
+  color: white;
+  font-weight: bolder;
+}
+
+#navPlanner {
+  font-size: var(--active-fontsize);
+  font-weight: bolder;
+  color: var(--salmon);
+}
+
+#controlDiv {
+  position: relative;
+}
+#message {
+  position: absolute;
+  top: -18px;
+  left: 15px;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: bolder;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
   }
-
-  #controlDiv{
-      position: relative;
+  50% {
+    opacity: 1;
   }
-  #message{
-      position: absolute;
-      top:-18px;
-      left:15px;
-      font-size: 0.8rem;
-      font-style: italic;
-      font-weight: bolder;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+  100% {
+    opacity: 0;
   }
-
-  @keyframes fadeInOut {
-    0%  { opacity: 0; }
-    50%  { opacity: 1; }
-    100% { opacity: 0; }
 }

@@ -128,21 +128,21 @@
     <div  id="modal-addToPlanner" class="closed">
         <div id="modalAddToPlannerWrapper">
             
-            <button id="close-addToPlanner-modal">X</button>
+            <button id="close-addToPlanner-modal">x</button>
             
             <form method='POST' action='/planner2/add-to-plan' class="flex-wrapper">
 
                 {{!-- <label for="recipe">Planned meals:</label> --}}
                 <input type="hidden" name="recipeId" id="modal-recipe-id">
 
-                <label for="plan">Choose one of your created plan:</label> 
+                <label for="plan">Choose one of your created plan: 
                 <select name="planId" id="plan">
                     {{#each plans}}
                     <option value="{{id}}">{{title}}</option>
                     {{/each}}
-                </select> 
+                </select> </label>
 
-                <label for="dayOfWeek">Choose a day:</label>
+                <label for="dayOfWeek">Choose a day:
                 <select name="dayOfWeek" id="dayOfWeek">
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
@@ -151,14 +151,14 @@
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
                     <option value="Sunday">Sunday</option>
-                </select>
+                </select></label>
 
-                <label for="mealName">Choose a meal:</label> 
+                <label for="mealName">Choose a meal: 
                 <select name="mealName" id="mealName">
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>
-                </select>   
+                </select></label>
                 
                 <button class="btn-add" id="btn-add">Add to planner</button>
                 
