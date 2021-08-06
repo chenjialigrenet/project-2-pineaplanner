@@ -1,3 +1,4 @@
+//Adding all the 
 const openModalSignupBtn = document.querySelector('.open-modal-signup');
 const closeModalSignupBtn = document.querySelector('.close-modal-signup');
 const modalSignup = document.querySelector('.modal-signup');
