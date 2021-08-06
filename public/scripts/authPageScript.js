@@ -7,12 +7,14 @@ const signupInsteadBtn = document.querySelector('.close-modal-login-to-signup');
 const loginInsteadBtn = document.querySelector('.close-modal-signup-to-login');
 const btnStart = document.getElementById('btn-start');
 
+//Showing the Signup Modal 
 function openModalSignup() {
   modalSignup.style.display = 'flex';
   modalSignup.removeAttribute('aria-hidden');
   modalOverlay.classList.toggle('closed');
 }
 
+//Closing the Signup Modal
 function closeModalSignup() {
   modalSignup.style.display = 'none';
   modalSignup.setAttribute('aria-hidden', 'true');
@@ -23,6 +25,7 @@ const openModalLoginBtn = document.querySelector('.open-modal-login');
 const closeModalLoginBtn = document.querySelector('.close-modal-login');
 const modalLogin = document.querySelector('.modal-login');
 
+//Opening login Modal
 function openModalLogin() {
   modalLogin.style.display = 'flex';
   modalLogin.removeAttribute('aria-hidden');
